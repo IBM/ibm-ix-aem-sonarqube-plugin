@@ -1,0 +1,14 @@
+{
+  "title": "Prefer binding Sling Servlets with resource type instead of using a path",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "10min"
+  },
+  "tags": [
+    "convention",
+    "aem"
+  ],
+  "defaultSeverity": "Info"
+}

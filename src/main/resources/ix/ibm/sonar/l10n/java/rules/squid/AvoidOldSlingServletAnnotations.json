@@ -1,0 +1,14 @@
+{
+  "title": "Avoid old Sling Servlet annotations",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "10min"
+  },
+  "tags": [
+    "convention",
+    "aem"
+  ],
+  "defaultSeverity": "Major"
+}

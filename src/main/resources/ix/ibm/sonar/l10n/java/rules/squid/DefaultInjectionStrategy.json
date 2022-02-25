@@ -1,0 +1,14 @@
+{
+  "title": "Explicitly set defaultInjectionStrategy parameter in Sling models",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "5min"
+  },
+  "tags": [
+    "convention",
+    "aem"
+  ],
+  "defaultSeverity": "Minor"
+}

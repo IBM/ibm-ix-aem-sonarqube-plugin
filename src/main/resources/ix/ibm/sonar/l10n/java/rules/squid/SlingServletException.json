@@ -1,0 +1,14 @@
+{
+  "title": "Log exceptions in Sling servlets and set response codes",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "15min"
+  },
+  "tags": [
+    "bad-practice",
+    "aem"
+  ],
+  "defaultSeverity": "Minor"
+}

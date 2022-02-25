@@ -1,0 +1,14 @@
+{
+  "title": "Do not use Non-thread-safe objects as class member variables",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "15min"
+  },
+  "tags": [
+    "convention",
+    "aem"
+  ],
+  "defaultSeverity": "Critical"
+}

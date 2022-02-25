@@ -1,0 +1,14 @@
+{
+  "title": "Use try-with-resources when accessing the ResourceResolver over the ResourceResolverFactory",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "15min"
+  },
+  "tags": [
+    "convention",
+    "aem"
+  ],
+  "defaultSeverity": "Critical"
+}

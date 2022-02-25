@@ -1,0 +1,14 @@
+{
+  "title": "Log exceptions in Sling filters",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "10min"
+  },
+  "tags": [
+    "bad-practice",
+    "aem"
+  ],
+  "defaultSeverity": "Major"
+}

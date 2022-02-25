@@ -1,0 +1,14 @@
+{
+  "title": "Separate OSGi configuration class from the implementation classes",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "20 min"
+  },
+  "tags": [
+    "bad-practice",
+    "aem"
+  ],
+  "defaultSeverity": "Minor"
+}

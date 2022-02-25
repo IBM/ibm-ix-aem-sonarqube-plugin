@@ -1,0 +1,14 @@
+{
+  "title": "Use available AEM or JAVA constants instead of inline literals.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "5min"
+  },
+  "tags": [
+    "bad-practice",
+    "aem"
+  ],
+  "defaultSeverity": "Minor"
+}

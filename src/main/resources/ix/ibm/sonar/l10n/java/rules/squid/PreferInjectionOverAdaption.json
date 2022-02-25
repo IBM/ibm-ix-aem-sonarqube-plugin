@@ -1,0 +1,14 @@
+{
+  "title": "Prefer object injection or utility/factory services over adaption when possible",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "20min"
+  },
+  "tags": [
+    "bad-practice",
+    "aem"
+  ],
+  "defaultSeverity": "Info"
+}

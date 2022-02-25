@@ -1,0 +1,35 @@
+<p>Felix annotations are deprecated, thus OSGi annotations (org.osgi.service.component.annotations.*) must be used instead.</p>
+
+| Additional Information |          |
+|------------------------|----------|
+| Severity               | Critical | 
+| Estimated time to fix  | 15 min   |
+
+<h2>Noncompliant Code
+    Example</h2>
+<pre>
+import org.apache.felix.scr.annotations.Component;
+import org.apache.felix.scr.annotations.Service;
+
+@Component(name = "Test Service", immediate = true, description = "Description")
+@Service(TestService.class)
+public class TestService {
+
+    public String getName() {
+        return "testService";
+    }
+}
+</pre><h2>Compliant Solution</h2>
+<pre>
+import org.osgi.service.component.annotations.Component;
+
+@Component(name = "Test Service", service = TestService.class, immediate = true)
+public class TestService {
+
+    public String getName() {
+        return "testService";
+    }
+}
+</pre>
+
+[![Back to overview](back.svg)](../../README.md)
