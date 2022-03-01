@@ -1,4 +1,4 @@
-[![IBM iX logo](assets/ibmix-logo.png)](https://www.ibm.com/services/ibmix)
+[<img alt="IBM iX logo" height="155" src="assets/ibmix-logo.png" width="430"/>](https://www.ibm.com/services/ibmix)
 
 # IBM iX Sonar rules for AEM development
 
