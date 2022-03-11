@@ -87,6 +87,7 @@ All the rules can be found in the `ecxio-aem` repository when using the SonarQub
 
 ## License
 Copyright 2020-present IBM Corporation
+
 This plugin is licensed under the Apache License, Version 2.0
 
 A part of this plugin contains code from another open source project &ndash; [AEM-Rules-for-SonarQube](https://github.com/wttech/AEM-Rules-for-SonarQube)  
