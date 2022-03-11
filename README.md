@@ -2,6 +2,8 @@
 
 # IBM iX Sonar rules for AEM development
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ibmix-aem-sonar-rules&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ibmix-aem-sonar-rules)
+
 ## Contents
 This repository contains free-to-use custom Sonar rules designed specifically for AEM development based on internal IBM iX company guidelines.
 [Adobe Experience Manager (AEM)](https://www.adobe.io/apis/experiencecloud/aem.html), is a comprehensive content management solution for building websites, mobile apps and forms.
