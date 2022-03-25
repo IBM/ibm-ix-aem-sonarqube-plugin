@@ -36,6 +36,11 @@
             <name>Andreas Maller</name>
             <email>andreas.maller@ibm.com</email>
         </developer>
+        <developer>
+            <id>daniel.strmecki</id>
+            <name>Daniel Strmecki</name>
+            <email>daniel.strmecki@ibm.com</email>
+        </developer>
     </developers>
 
     <scm>
