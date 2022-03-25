@@ -46,7 +46,7 @@ public class UseConstantsForLiteralsRule extends ExpandedTreeVisitor {
     }
 
     private String replaceStringQuotations(final String value) {
-        return value.replaceAll("^\"|\"$", StringUtils.EMPTY);
+        return value.replaceAll("(^\")|(\"$)", StringUtils.EMPTY);
     }
 
 }
