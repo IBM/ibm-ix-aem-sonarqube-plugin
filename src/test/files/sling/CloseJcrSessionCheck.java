@@ -45,7 +45,7 @@ class SlingModelClass {
         try {
             session = repository.loginService(null, null);
         } catch (final LoginException | RepositoryException ex) {
-            System.out.error("Unable to open repository session", ex);
+            log.error("Unable to open repository session", ex);
         } finally {
             if (session != null && session.isLive()) {
                 session.logout();
@@ -77,8 +77,8 @@ class SlingModelClass2 {
         Session result = null;
         try {
             result = repository.loginService(null, null);
-        } catch (RepositoryException e) {
-            e.printStackTrace();
+        } catch (final RepositoryException ex) {
+            log.error("Unable to create session", ex);
         }
         return result;
     }
@@ -95,8 +95,8 @@ class SlingModelClass3 {
         Session session = null;
         try {
             session = repository.loginService(null, null);
-        } catch (RepositoryException e) {
-            e.printStackTrace();
+        } catch (final RepositoryException ex) {
+            log.error("Unable to create session", ex);
         } finally {
             if (session != null && session.isLive()) {
                 session.logout();
@@ -118,7 +118,7 @@ class SlingModelClass4 {
         try {
             session = repository.loginService(null, null);
         } catch (final LoginException | RepositoryException ex) {
-            System.out.error("Unable to open repository session", ex);
+            log.error("Unable to open repository session", ex);
         }
     }
 
@@ -135,8 +135,8 @@ class SlingModelClass5 {
 
         try {
             session = repository.loginService(null, null);
-        } catch (RepositoryException e) {
-            e.printStackTrace();
+        } catch (final RepositoryException e) {
+            log.error("Unable to open repository session", ex);
         } finally {
             if (session != null && session.isLive()) {
             }
@@ -159,8 +159,8 @@ class Component1 {
         plotTwist = StringUtils.capitalize(plotTwist);
         try {
             session = repository.loginService(null, null);
-        } catch (RepositoryException e) {
-            e.printStackTrace();
+        } catch (final RepositoryException e) {
+            log.error("Unable to open repository session", ex);
         } finally {
             if (session != null && session.isLive()) {
                 plotTwist.toString();
@@ -189,8 +189,8 @@ class Component2 {
         Session result = null;
         try {
             result = repository.loginService(null, null);
-        } catch (RepositoryException e) {
-            e.printStackTrace();
+        } catch (final RepositoryException e) {
+            log.error("Unable to open repository session", ex);
         }
         return result;
     }
@@ -213,8 +213,8 @@ class Component3 {
         Session result = null;
         try {
             result = repository.loginService(null, null);
-        } catch (RepositoryException e) {
-            e.printStackTrace();
+        } catch (final RepositoryException e) {
+            log.error("Unable to open repository session", ex);
         }
         return result;
     }
