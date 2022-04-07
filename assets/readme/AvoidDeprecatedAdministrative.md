@@ -23,7 +23,7 @@ class SlingModelClass {
         try {
             session = repository.loginAdministrative(null);
         } catch (final LoginException | RepositoryException ex) {
-            System.out.error("Unable to open repository session", ex);
+            log.error("Unable to open repository session", ex);
         }
     }
 
@@ -41,7 +41,7 @@ class SlingModelClass {
         try {
             session = repository.loginService(null, null);
         } catch (final LoginException | RepositoryException ex) {
-            System.out.error("Unable to open repository session", ex);
+            log.error("Unable to open repository session", ex);
         } finally {
             if (session != null && session.isLive()) {
                 session.logout();

@@ -47,7 +47,7 @@ class SlingModelClass {
         try {
             session = repository.loginService(null, null);
         } catch (final LoginException | RepositoryException ex) {
-            System.out.error("Unable to open repository session", ex);
+            log.error("Unable to open repository session", ex);
         } finally {
             if (session != null && session.isLive()) {
                 session.logout();
@@ -79,8 +79,8 @@ class SlingModelClass2 {
         Session result = null;
         try {
             result = repository.loginAdministrative(null); // Noncompliant {{Avoid using loginAdministrative method - (Deprecated)}}
-        } catch (RepositoryException e) {
-            e.printStackTrace();
+        } catch (final RepositoryException ex) {
+            log.error("Unable to create administrative session", ex);
         }
         return result;
     }
@@ -97,7 +97,7 @@ class SlingModelClass3 {
         try {
             final ResourceResolver resourceResolver = resourceResolverFactory.getAdministrativeResourceResolver(null); // Noncompliant {{Avoid using getAdministrativeResourceResolver method - (Deprecated)}}
         }  catch (final LoginException ex) {
-            System.out.error("Unable to log in service user", ex);
+            log.error("Unable to log in service user", ex);
         }
     }
 

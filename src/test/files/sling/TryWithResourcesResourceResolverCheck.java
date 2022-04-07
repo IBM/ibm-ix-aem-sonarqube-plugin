@@ -100,7 +100,7 @@ class SlingModelClass {
         try (ResourceResolver resourceResolver = resourceResolverFactory.getServiceResourceResolver(Map.of(ResourceResolverFactory.SUBSERVICE, "serviceUser"))) {
 
         } catch (final LoginException ex) {
-            System.out.error("Unable to log in service user", ex);
+            log.error("Unable to log in service user", ex);
         }
     }
 
@@ -116,7 +116,7 @@ class SlingModelClass2 {
         try {
             ResourceResolver resourceResolver = resourceResolverFactory.getServiceResourceResolver(Map.of(ResourceResolverFactory.SUBSERVICE, "serviceUser")); // Noncompliant {{ResourceResolver should be closed using try-with-resources Java feature.}}
         } catch (final LoginException ex) {
-            System.out.error("Unable to log in service user", ex);
+            log.error("Unable to log in service user", ex);
         }
     }
 
