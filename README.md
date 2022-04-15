@@ -30,7 +30,7 @@ You can find the complete list of rules available in the plugin.
 More detailed descriptions of the rules can be found when opening the rules in the SonarQube interface.
 All the rules can be found in the `ecxio-aem` repository when using the SonarQube interface.
 
-1. **[AvoidDeprecatedAdministrative](assets/readme/AvoidDepricatedAdministrative.md)** - _Avoid administrative access_  
+1. **[AvoidDeprecatedAdministrative](assets/readme/AvoidDeprecatedAdministrative.md)** - _Avoid administrative access_  
    - Use Sling Repository login service instead 
   
 2. **[AvoidFelixAnnotations](assets/readme/AvoidFelixAnnotations.md)** - _Avoid Felix annotations_

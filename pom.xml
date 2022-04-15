@@ -5,12 +5,55 @@
 
     <groupId>ix.ibm.sonar.java.rules</groupId>
     <artifactId>ibmix-aem-sonar-rules</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>sonar-plugin</packaging>
 
     <name>IBM iX AEM Sonar rules</name>
     <description>Plugin containing custom Sonar rules for AEM development based on IBM iX internal guidelines</description>
     <inceptionYear>2020</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <organization>
+        <name>IBM iX</name>
+        <url>https://www.ibm.com/services/ibmix</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>martin.gluhak</id>
+            <name>Martin Gluhak</name>
+            <email>martin.gluhak@ibm.com</email>
+        </developer>
+        <developer>
+            <id>andreas.maller</id>
+            <name>Andreas Maller</name>
+            <email>andreas.maller@ibm.com</email>
+        </developer>
+        <developer>
+            <id>daniel.strmecki</id>
+            <name>Daniel Strmecki</name>
+            <email>daniel.strmecki@ibm.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:IBM/ibm-ix-aem-sonarqube-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:IBM/ibm-ix-aem-sonarqube-plugin.git</developerConnection>
+        <url>https://github.com/IBM/ibm-ix-aem-sonarqube-plugin</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/IBM/ibm-ix-aem-sonarqube-plugin/issues</url>
+    </issueManagement>
 
     <properties>
         <sonar.version>9.0.1.46107</sonar.version>
@@ -165,12 +208,13 @@
                 <version>1.21.0.505</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <pluginKey>ibmix-aem-sonar-rules</pluginKey>
-                    <pluginName>ibmix aem sonar rules</pluginName>
+                    <pluginKey>ibmixaemrules</pluginKey>
+                    <pluginName>IBM iX AEM Sonar rules</pluginName>
                     <pluginClass>ix.ibm.sonar.java.MyJavaRulesPlugin</pluginClass>
+                    <pluginUrl>https://github.com/IBM/ibm-ix-aem-sonarqube-plugin</pluginUrl>
                     <sonarLintSupported>true</sonarLintSupported>
                     <skipDependenciesPackaging>true</skipDependenciesPackaging>
-                    <sonarQubeMinVersion>7.9</sonarQubeMinVersion>
+                    <sonarQubeMinVersion>9.0</sonarQubeMinVersion>
                     <requirePlugins>java:${sonarjava.version}</requirePlugins>
                 </configuration>
             </plugin>
