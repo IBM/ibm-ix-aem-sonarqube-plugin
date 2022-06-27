@@ -56,7 +56,7 @@
     </issueManagement>
 
     <properties>
-        <sonar.version>9.0.1.46107</sonar.version>
+        <sonar.version>8.9.0.43852</sonar.version>
         <sslr.version>1.24.0.633</sslr.version>
         <junit.version>5.8.0</junit.version>
         <sonarjava.version>7.1.0.26670</sonarjava.version>
@@ -214,7 +214,7 @@
                     <pluginUrl>https://github.com/IBM/ibm-ix-aem-sonarqube-plugin</pluginUrl>
                     <sonarLintSupported>true</sonarLintSupported>
                     <skipDependenciesPackaging>true</skipDependenciesPackaging>
-                    <sonarQubeMinVersion>9.0</sonarQubeMinVersion>
+                    <sonarQubeMinVersion>8.9</sonarQubeMinVersion>
                 </configuration>
             </plugin>
 
