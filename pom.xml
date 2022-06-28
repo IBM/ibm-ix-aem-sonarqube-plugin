@@ -5,7 +5,7 @@
 
     <groupId>ix.ibm.sonar.java.rules</groupId>
     <artifactId>ibmix-aem-sonar-rules</artifactId>
-    <version>1.2</version>
+    <version>1.3-SNAPSHOT</version>
     <packaging>sonar-plugin</packaging>
 
     <name>IBM iX AEM Sonar rules</name>
