@@ -1,4 +1,4 @@
-<p>Put OSGi configuration in a separate class and then use @Designate(ocd = CustomServiceConfig.class) to load it into an implementation class.
+<p>Put the OSGi configuration in a separate class and then use _@Designate(ocd = CustomServiceConfig.class)_ to load it into an implementation class.
     One additional benefit is that the configuration can be placed in a separate package and thus easily excluded from Sonar checks.</p>
 
 | Additional Information |        |
@@ -7,7 +7,7 @@
 | Estimated time to fix  | 20 min |
 
 <h2>Noncompliant Code Example</h2>
-<pre>
+```java
 @Component(
     service = ServiceClas.class,
     immediate = true,
@@ -24,6 +24,7 @@ class ServiceClassImpl implements ServiceClass {
     
     @Override
     public void doSomething() {
+        //Custom logic
     }
     
     @ObjectClassDefinition(name = "Service Class Configuration")
@@ -35,6 +36,6 @@ class ServiceClassImpl implements ServiceClass {
   }
 
 }
-</pre>
+```
 
 [![Back to overview](back.svg)](../../README.md)

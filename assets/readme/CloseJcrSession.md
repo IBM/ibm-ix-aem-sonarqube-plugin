@@ -1,5 +1,5 @@
-<p>A JCR <a href="https://www.adobe.io/experience-manager/reference-materials/spec/jsr170/javadocs/jcr-2.0/javax/jcr/Session.html">Session</a>
-    when received via the <a href="https://sling.apache.org/apidocs/sling10/org/apache/sling/jcr/api/SlingRepository.html">SlingRepository</a>
+<p>When a JCR <a href="https://www.adobe.io/experience-manager/reference-materials/spec/jsr170/javadocs/jcr-2.0/javax/jcr/Session.html">Session</a>
+    is received via the <a href="https://sling.apache.org/apidocs/sling10/org/apache/sling/jcr/api/SlingRepository.html">SlingRepository</a>, it
     should always be closed.
 </p>
 
@@ -9,7 +9,7 @@
 | Estimated time to fix  | 15 min   |
 
 <h2>Noncompliant Code Example</h2>
-<pre>
+```java
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 class SlingModelClass {
 
@@ -25,10 +25,11 @@ class SlingModelClass {
             log.error("Unable to open repository session", ex);
         }
     }
-
+    
 }
-</pre><h2>Compliant Solution</h2>
-<pre>
+```
+<h2>Compliant Solution</h2>
+```java
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 class SlingModelClass {
 
@@ -46,10 +47,9 @@ class SlingModelClass {
                 session.logout();
             }
         }
-
     }
-
+    
 }
-</pre>
+```
 
 [![Back to overview](back.svg)](../../README.md)

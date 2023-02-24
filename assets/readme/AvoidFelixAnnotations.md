@@ -1,4 +1,4 @@
-<p>Felix annotations are deprecated, thus OSGi annotations (org.osgi.service.component.annotations.*) must be used instead.</p>
+<p>Felix annotations are deprecated, thus OSGi annotations (_org.osgi.service.component.annotations.*_) must be used instead.</p>
 
 | Additional Information |          |
 |------------------------|----------|
@@ -7,7 +7,7 @@
 
 <h2>Noncompliant Code
     Example</h2>
-<pre>
+```java
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Service;
 
@@ -18,9 +18,11 @@ public class TestService {
     public String getName() {
         return "testService";
     }
+    
 }
-</pre><h2>Compliant Solution</h2>
-<pre>
+```
+<h2>Compliant Solution</h2>
+```java
 import org.osgi.service.component.annotations.Component;
 
 @Component(name = "Test Service", service = TestService.class, immediate = true)
@@ -29,7 +31,8 @@ public class TestService {
     public String getName() {
         return "testService";
     }
+    
 }
-</pre>
+```
 
 [![Back to overview](back.svg)](../../README.md)
