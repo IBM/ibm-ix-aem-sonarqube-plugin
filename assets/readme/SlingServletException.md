@@ -10,6 +10,7 @@
 | Estimated time to fix  | 15 min |
 
 <h2>Noncompliant Code Example</h2>
+
 ```java
 @Component(service = Servlet.class)
 @SlingServletName(servletName = "Custom servlet name")
@@ -31,7 +32,9 @@ public class CustomServlet extends SlingAllMethodsServlet {
 
 }
 ```
+
 <h2>Compliant Solution</h2>
+
 ```java
 @Component(service = Servlet.class)
 @SlingServletName(servletName = "Custom servlet name")

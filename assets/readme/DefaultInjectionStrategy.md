@@ -10,11 +10,14 @@
 | Estimated time to fix  | 5 min |
 
 <h2>Noncompliant Code Example</h2>
+
 ```java
 @Model(adaptables = SlingHttpServletRequest.class)
 public class MyModel {}
 ```
+
 <h2>Compliant Solution</h2>
+
 ```java
 @Model(adaptables = SlingHttpServletRequest.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class MyModel {}

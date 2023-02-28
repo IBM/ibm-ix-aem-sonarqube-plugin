@@ -20,6 +20,7 @@ Node node = session.getNode(nodePath);
 node.setProperty("property", propertyValue);
 ```
 <h2>Compliant Solution</h2>
+
 ```java
 Resource resource = this.resourceResolver.getResource(resourcePath);
 ModifiableValueMap properties = resource.adaptTo(ModifiableValueMap.class);

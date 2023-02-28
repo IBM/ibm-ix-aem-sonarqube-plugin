@@ -13,9 +13,7 @@ Maven dependency added and that the maven-bundle-plugin dependency has been set 
 More information available in the
 <a href="https://sling.apache.org/documentation/the-sling-engine/servlets.html">documentation</a>
 </p>
-<h2>
-    Noncompliant Code Example
-</h2>
+<h2>Noncompliant Code Example</h2>
 
 ```java
 @Component(service = Servlet.class, immediate = true,
@@ -24,6 +22,7 @@ More information available in the
 public class SlingServlet extends SlingSafeMethodsServlet {}
 ```
 <h2>Compliant Solution</h2>
+
 ```java
 @Component(service = Servlet.class, immediate = true)
 @SlingServletResourceTypes(resourceTypes = "resourceType", selectors = "selector")

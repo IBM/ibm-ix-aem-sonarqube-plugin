@@ -10,6 +10,7 @@
 | Estimated time to fix  | 10 min |
 
 <h2>Noncompliant Code Example</h2>
+
 ```java
 @Override
 public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain filterChain) throws IOException, ServletException {
@@ -18,7 +19,9 @@ public void doFilter(final ServletRequest request, final ServletResponse respons
     filterChain.doFilter(request, response);
 }
 ```
+
 <h2>Compliant Solution</h2>
+
 ```java
 @Override
 public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain filterChain) throws IOException, ServletException {

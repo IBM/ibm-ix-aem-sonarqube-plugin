@@ -5,8 +5,8 @@
 | Severity               | Critical | 
 | Estimated time to fix  | 15 min   |
 
-<h2>Noncompliant Code
-    Example</h2>
+<h2>Noncompliant Code Example</h2>
+
 ```java
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Service;

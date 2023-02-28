@@ -21,6 +21,7 @@ public class MyModel extends WCMUsePojo { }
 ```
 
 <h2>Compliant Solution</h2>
+
 ```java
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class MyModel {  }

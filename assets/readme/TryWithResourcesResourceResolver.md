@@ -11,6 +11,7 @@ Please do not confuse service resource resolver (which uses a service user sessi
 | Estimated time to fix  | 15 min   |
 
 <h2>Noncompliant Code Example</h2>
+
 ```java
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 class SlingModelClass {
@@ -30,6 +31,7 @@ class SlingModelClass {
 ```
 
 <h2>Compliant Solution</h2>
+
 ```java
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 class SlingModelClass {

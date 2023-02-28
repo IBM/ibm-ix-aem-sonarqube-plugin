@@ -17,6 +17,7 @@
 
 
 <h2>Noncompliant Code Example</h2>
+
 ```java
 @Component(service = Servlet.class, immediate = true)
 @SlingServletResourceTypes(resourceTypes = "resourceType", selectors = "selector")

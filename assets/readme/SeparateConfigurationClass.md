@@ -7,6 +7,7 @@
 | Estimated time to fix  | 20 min |
 
 <h2>Noncompliant Code Example</h2>
+
 ```java
 @Component(
     service = ServiceClas.class,
