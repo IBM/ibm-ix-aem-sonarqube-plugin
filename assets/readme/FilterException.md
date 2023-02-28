@@ -1,7 +1,7 @@
 <p>
     It is best practice to catch and log any runtime exceptions your custom code might throw in the filter. That way, we ensure that the filter chain will
     continue, even if our code is failing. </p><p>
-    Also, make sure to keep the throws declaration for _IOException_ and _ServletException_. Do not try to catch these exceptions, as that might cause unexpected
+    Also, make sure to keep the throws declaration for <i>IOException</i> and <i>ServletException</i>. Do not try to catch these exceptions, as that might cause unexpected
     behaviour. </p>
 
 | Additional Information |        |

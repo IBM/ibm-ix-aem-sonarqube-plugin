@@ -7,11 +7,11 @@
 | Estimated time to fix  | 30 min |
 
 <ul>
-    <li>Accessing JCR nodes as Sling Resources and accessing their data via _ValueMaps_</li>
-    <li>Providing security context via the _ResourceResolver_</li>
-    <li>Creating and removing resources via _ResourceResolver's_ create/move/copy/delete methods</li>
-    <li>Updating properties via the _ModifiableValueMap_</li>
-</ul><p>Avoid using JCR API calls from Session or Node objects, as well utility classes _JcrUtil_ and _JcrUtils_ (unless needed
+    <li>Accessing JCR nodes as Sling Resources and accessing their data via <i>ValueMaps</i></li>
+    <li>Providing security context via the <i>ResourceResolver</i></li>
+    <li>Creating and removing resources via <i>ResourceResolver's</i> create/move/copy/delete methods</li>
+    <li>Updating properties via the <i>ModifiableValueMap</i></li>
+</ul><p>Avoid using JCR API calls from Session or Node objects, as well utility classes <i>JcrUtil</i> and <i>JcrUtils</i> (unless needed
     functionality is not provided in the Sling API)</p>
 <h2>Noncompliant Code Example</h2>
 

@@ -1,4 +1,4 @@
-<p>Use _HttpServletResponse_ class constants for Http response codes instead of using hardcoded numbers. 
+<p>Use <i>HttpServletResponse</i> class constants for Http response codes instead of using hardcoded numbers. 
 
 | Additional Information |       |
 |------------------------|-------|

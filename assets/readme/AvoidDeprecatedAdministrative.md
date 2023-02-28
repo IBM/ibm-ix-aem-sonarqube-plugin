@@ -1,7 +1,7 @@
 <p>Avoid <a href="https://sling.apache.org/apidocs/sling10/org/apache/sling/jcr/api/SlingRepository.html#loginAdministrative-java.lang.String-">Sling
-    Repository</a> _loginAdministrative_ and
+    Repository</a> <i>loginAdministrative</i> and
     <a href="https://sling.apache.org/apidocs/sling11/org/apache/sling/api/resource/ResourceResolverFactory.html#getAdministrativeResourceResolver-java.util.Map-">ResourceResolverFactory</a>
-    _getAdministrativeResourceResolver_ methods. They are deprecated and a security risk.
+    <i>getAdministrativeResourceResolver</i> methods. They are deprecated and a security risk.
 </p>
 
 | Additional Information |          |

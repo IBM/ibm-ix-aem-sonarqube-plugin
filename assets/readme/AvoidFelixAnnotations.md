@@ -1,4 +1,4 @@
-<p>Felix annotations are deprecated, thus OSGi annotations (_org.osgi.service.component.annotations.*_) must be used instead.</p>
+<p>Felix annotations are deprecated, thus OSGi annotations (<i>org.osgi.service.component.annotations.*<i>) must be used instead.</p>
 
 | Additional Information |          |
 |------------------------|----------|
@@ -21,7 +21,9 @@ public class TestService {
     
 }
 ```
+
 <h2>Compliant Solution</h2>
+
 ```java
 import org.osgi.service.component.annotations.Component;
 

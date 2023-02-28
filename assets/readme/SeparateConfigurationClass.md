@@ -1,4 +1,4 @@
-<p>Put the OSGi configuration in a separate class and then use _@Designate(ocd = CustomServiceConfig.class)_ to load it into an implementation class.
+<p>Put the OSGi configuration in a separate class and then use <i>@Designate(ocd = CustomServiceConfig.class)</i> to load it into an implementation class.
     One additional benefit is that the configuration can be placed in a separate package and thus easily excluded from Sonar checks.</p>
 
 | Additional Information |        |

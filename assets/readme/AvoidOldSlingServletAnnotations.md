@@ -1,4 +1,4 @@
-<p>Use the new Sling servlet OSGi DS 1.4 (R7) component property type annotations that come with _org.apache.sling.servlets.annotations_ - _@SlingServletResourceTypes_ and _@SlingServletPaths_.
+<p>Use the new Sling servlet OSGi DS 1.4 (R7) component property type annotations that come with <i>org.apache.sling.servlets.annotations</i> - <i>@SlingServletResourceTypes</i> and <i>@SlingServletPaths</i>.
 </p>
 
 | Additional Information |        |
