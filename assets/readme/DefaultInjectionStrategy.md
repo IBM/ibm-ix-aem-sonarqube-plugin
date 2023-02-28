@@ -1,6 +1,6 @@
 <p>Argument defaultInjectionStrategy should be explicitly set in the Sling model annotation</p>
 
-<p>There are use cases where you may need to get a <i>Request</i> object inside a Sling Model or you want to adapt your Sling Model using a _SlingHttpServletRequest_
+<p>There are use cases where you may need to get a <i>Request</i> object inside a Sling Model or you want to adapt your Sling Model using a <i>SlingHttpServletRequest</i>
     object. In both cases it is recommended to set optional injection strategy as default (<i>DefaultInjectionStrategy.OPTIONAL</i>), otherwise all the injected fields
     are assumed to be required by Sling.</p>
 
