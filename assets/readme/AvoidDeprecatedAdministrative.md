@@ -1,7 +1,7 @@
 <p>Avoid <a href="https://sling.apache.org/apidocs/sling10/org/apache/sling/jcr/api/SlingRepository.html#loginAdministrative-java.lang.String-">Sling
-    Repository</a> loginAdministrative and
+    Repository</a> <i>loginAdministrative</i> and
     <a href="https://sling.apache.org/apidocs/sling11/org/apache/sling/api/resource/ResourceResolverFactory.html#getAdministrativeResourceResolver-java.util.Map-">ResourceResolverFactory</a>
-    getAdministrativeResourceResolver methods. They are deprecated and a security risk.
+    <i>getAdministrativeResourceResolver</i> methods. They are deprecated and a security risk.
 </p>
 
 | Additional Information |          |
@@ -11,7 +11,8 @@
 
 
 <h2>Noncompliant Code Example</h2>
-<pre>
+
+```java
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 class SlingModelClass {
 
@@ -26,10 +27,12 @@ class SlingModelClass {
             log.error("Unable to open repository session", ex);
         }
     }
-
+    
 }
-</pre><h2>Compliant Solution</h2>
-<pre>
+```
+<h2>Compliant Solution</h2>
+
+```java
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 class SlingModelClass {
 
@@ -47,10 +50,9 @@ class SlingModelClass {
                 session.logout();
             }
         }
-
     }
 
 }
-</pre>
+```
 
 [![Back to overview](back.svg)](../../README.md)

@@ -1,5 +1,5 @@
 <p>When possible, prefer using object injection or utility/factory services instead of adapting the object.</p>
-<p>The adaptTo method is not recommended in this case as it does not throw exceptions, it simply returns null in case of failure.
+<p>The <i>adaptTo</i> method is not recommended in this case as it does not throw exceptions, it simply returns <i>null</i> in case of failure.
 </p>
 
 | Additional Information |        |
@@ -8,7 +8,8 @@
 | Estimated time to fix  | 20 min |
 
 <h2>Noncompliant Code Example</h2>
-<pre>
+
+```java
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 class SlingModelClass {
 
@@ -29,8 +30,11 @@ class SlingModelClass {
     }
 
 }
-</pre><h2>Compliant Solution</h2>
-<pre>
+```
+
+<h2>Compliant Solution</h2>
+
+```java
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 class SlingModelClass {
 
@@ -51,6 +55,6 @@ class SlingModelClass {
     }
 
 }
-</pre>
+```
 
 [![Back to overview](back.svg)](../../README.md)

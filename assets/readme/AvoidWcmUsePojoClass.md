@@ -15,12 +15,16 @@
 | Estimated time to fix  | 15 min   |
 
 </ul><h2>Noncompliant Code Example</h2>
-<pre>
+
+```java
 public class MyModel extends WCMUsePojo { }
-</pre><h2>Compliant Solution</h2>
-<pre>
+```
+
+<h2>Compliant Solution</h2>
+
+```java
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class MyModel {  }
-</pre>
+```
 
 [![Back to overview](back.svg)](../../README.md)

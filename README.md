@@ -16,7 +16,8 @@ The rules can be easily added to [SonarQube](https://www.sonarqube.org/) and use
 2. Place it into your SonarQube installation directory under `/extensions/plugins`
 3. Restart the SonarQube instance
 
-### Sonar Marketplace
+### Sonar Marketplace 
+(available only in the SonarQube Community version)
 1. Using the SonarQube Administration panel open the Marketplace section
 2. Under the plugins subsection, search for `IBM iX AEM Sonar rules` and press install
 3. Restart the SonarQube instance
@@ -25,16 +26,16 @@ The rules can be easily added to [SonarQube](https://www.sonarqube.org/) and use
 
 This plugin only supports SonarQube versions starting from v8.9.
 
-Note: since this plugin requires Java 11, you must make sure to run the Sonar scanner using the same Java version (usually inside the CI/CD pipeline). This does not impact the code itself that is being analysed (which can use any Java version). This is only relevant if you are using SonarQube v8.9 as all newer versions no longer support running scanner with Java 8. 
+Note: since this plugin is written in Java 11, you must make sure not to run the Sonar scanner using an older Java version (usually inside the CI/CD pipeline). This does not impact the code itself that is being analysed (which can use any Java version). This is only relevant if you are using SonarQube v8.9 as all newer versions no longer support running scanner with Java 8. 
 
 ## How to use
 Rules provided by this plugin should work out-of-the-box.
 In order to use them, you should add the rules to the quality profile that is used for analysis on your project.
 
 ## Rules
-You can find the complete list of rules available in the plugin.
+Here you can find the complete list of rules available in this plugin.
 More detailed descriptions of the rules can be found when opening the rules in the SonarQube interface.
-All the rules can be found in the `ecxio-aem` repository when using the SonarQube interface.
+All the rules can be found in the `IBM iX AEM rules` repository when using the SonarQube interface.
 
 1. **[AvoidDeprecatedAdministrative](assets/readme/AvoidDeprecatedAdministrative.md)** - _Avoid administrative access_  
    - Use Sling Repository login service instead 
@@ -70,8 +71,8 @@ All the rules can be found in the `ecxio-aem` repository when using the SonarQub
     - Put OSGi configuration in a separate class and then use `@Designate(ocd = CustomServiceConfig.class)` to load it into an implementation class.
 
 12. **[SlingServletException](assets/readme/SlingServletException.md)** - _Log exceptions in Sling servlets and set response codes_
-    - Wrap all the code from a servlet method in a try-catch block and return 500 - Internal server and log any runtime exception.
-    - Always return the appropriate HTTP in a servlet response.
+    - Wrap all the code from a servlet method in a try-catch block and return status code 500 - Internal server error and log any runtime exception.
+    - Always return the appropriate HTTP status code in a servlet response.
 
 13. **[SlingServletResourceOverPath](assets/readme/SlingServletResourceOverPath.md)** - _Prefer binding Sling Servlets with resource type instead of using a path_
     - Whenever possible prefer using `@SlingServletResourceTypes` annotations over `@SlingServletPaths`.
@@ -79,8 +80,8 @@ All the rules can be found in the `ecxio-aem` repository when using the SonarQub
 14. **[ThreadSafeObjects](assets/readme/ThreadSafeObjects.md)** - _Avoid member variables which are not thread safe
     - Make sure to never use classes, which are not thread safe, as class member variables.
 
-15. **[TryWithResourcesResourceResolver](assets/readme/TryWithResourcesResourceResolver.md)** - _Use `try-with-resources` when receiving `ResourceResolver`_  
-    - When receiving a `ResourceResolver` via the `ResourceResolverFactory` always use `try-with-resources.
+15. **[TryWithResourcesResourceResolver](assets/readme/TryWithResourcesResourceResolver.md)** - _Use `try-with-resources` when instantiating `ResourceResolver`_  
+    - When instantiating a `ResourceResolver` from the `ResourceResolverFactory` always use the `try-with-resources` feature.
 
 16. **[UseConstantsForHttpCodes](assets/readme/UseConstantsForHttpCodes.md)** - _Use constants for Http response codes_
     - Use `HttpServletResponse` class constants for Http response codes instead of using hardcoded numbers
