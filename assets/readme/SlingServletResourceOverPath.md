@@ -11,15 +11,19 @@ Make use of constants for defining servlet properties in @SlingServletResourceTy
 </p>
 
 <h2>Noncompliant Code Example</h2>
-<pre>
+
+```java
 @Component(service = Servlet.class)
 @SlingServletPaths("/bin/custom-servlet")
-public class UserReportServlet extends SlingSafeMethodsServlet {}
-</pre><h2>Compliant Solution</h2>
-<pre>
+public class SlingServlet extends SlingSafeMethodsServlet {}
+```
+
+<h2>Compliant Solution</h2>
+
+```java
 @Component(service = Servlet.class, immediate = true)
 @SlingServletResourceTypes(resourceTypes = "resourceType", selectors = "selector")
 public class SlingServlet extends SlingSafeMethodsServlet {}
-</pre>
+```
 
 [![Back to overview](back.svg)](../../README.md)

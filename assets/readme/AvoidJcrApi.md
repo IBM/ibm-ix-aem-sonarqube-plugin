@@ -7,21 +7,24 @@
 | Estimated time to fix  | 30 min |
 
 <ul>
-    <li>Accessing JCR nodes as Sling Resources and accessing their data via ValueMaps</li>
-    <li>Providing security context via the ResourceResolver</li>
-    <li>Creating and removing resources via ResourceResolver's create/move/copy/delete methods</li>
-    <li>Updating properties via the ModifiableValueMap</li>
-</ul><p>Avoid using JCR API calls from Session or Node objects, as well utility classes JcrUtil and JcrUtils (unless needed
+    <li>Accessing JCR nodes as Sling Resources and accessing their data via <i>ValueMaps</i></li>
+    <li>Providing security context via the <i>ResourceResolver</i></li>
+    <li>Creating and removing resources via <i>ResourceResolver's</i> create/move/copy/delete methods</li>
+    <li>Updating properties via the <i>ModifiableValueMap</i></li>
+</ul><p>Avoid using JCR API calls from Session or Node objects, as well utility classes <i>JcrUtil</i> and <i>JcrUtils</i> (unless needed
     functionality is not provided in the Sling API)</p>
 <h2>Noncompliant Code Example</h2>
-<pre>
+
+```java
 Node node = session.getNode(nodePath);
 node.setProperty("property", propertyValue);
-</pre><h2>Compliant Solution</h2>
-<pre>
+```
+<h2>Compliant Solution</h2>
+
+```java
 Resource resource = this.resourceResolver.getResource(resourcePath);
 ModifiableValueMap properties = resource.adaptTo(ModifiableValueMap.class);
 properties.put("property", propertyValue);
-</pre>
+```
 
 [![Back to overview](back.svg)](../../README.md)

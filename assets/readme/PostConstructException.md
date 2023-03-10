@@ -1,5 +1,5 @@
 <p>
-    It is recommended to wrap all the code in the @PostConstruct method via try-catch in order to catch any runtime exceptions that could occur while adapting
+    It is recommended to wrap all the code in the @PostConstruct method inside a try-catch block in order to catch any runtime exceptions that could occur while adapting
     the resource/request. </p>
 
 | Additional Information |        |
@@ -8,7 +8,7 @@
 | Estimated time to fix  | 30 min |
 
 <p>We do this to properly log any runtime exception that might occur in a component, for example a null-pointer exception. Also, using this strategy we avoid
-    showing unfriendly exceptions and their stacktrace to our end users. 
+    showing unfriendly exceptions and their stacktrace to our end users.
 </p>
 <p>
     Creating your own exception classes is still the best practice in the business layer (OSGi services). However, in the presentation layer, it is enough to
@@ -16,7 +16,8 @@
 </p>
 
 <h2>Noncompliant Code Example</h2>
-<pre>
+
+```java
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 class SlingModelClass {
 
@@ -31,10 +32,13 @@ class SlingModelClass {
         PageManager pageManager = pageManagerFactory.getPageManager(resourceResolver);
         Asset asset = DamUtil.resolveToAsset(resource);
     }
-
+    
 }
-</pre><h2>Compliant Solution</h2>
-<pre>
+```
+
+<h2>Compliant Solution</h2>
+
+```java
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 class SlingModelClass {
 
@@ -53,8 +57,8 @@ class SlingModelClass {
             logger.error("Exception in post construct", ex);
         }
     }
-
+    
 }
-</pre>
+```
 
 [![Back to overview](back.svg)](../../README.md)
