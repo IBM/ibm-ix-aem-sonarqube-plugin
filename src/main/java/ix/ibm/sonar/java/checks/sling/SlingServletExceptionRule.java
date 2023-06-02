@@ -16,25 +16,17 @@
 
 package ix.ibm.sonar.java.checks.sling;
 
-import java.util.List;
-import java.util.Objects;
-
-import org.apache.commons.lang3.StringUtils;
-import org.sonar.check.Rule;
-import org.sonar.plugins.java.api.tree.BlockTree;
-import org.sonar.plugins.java.api.tree.CatchTree;
-import org.sonar.plugins.java.api.tree.ClassTree;
-import org.sonar.plugins.java.api.tree.MethodTree;
-import org.sonar.plugins.java.api.tree.StatementTree;
-import org.sonar.plugins.java.api.tree.Tree;
-import org.sonar.plugins.java.api.tree.TryStatementTree;
-
 import ix.ibm.sonar.java.utils.AemRecognizer;
+import ix.ibm.sonar.java.utils.JavaFinder;
 import ix.ibm.sonar.java.utils.WarningConstants;
-import ix.ibm.sonar.java.utils.PackageConstants;
 import ix.ibm.sonar.java.visitors.ExpandedTreeVisitor;
 import ix.ibm.sonar.java.visitors.OverrideMethodFinder;
 import ix.ibm.sonar.java.visitors.ResponseStatusFinder;
+import org.sonar.check.Rule;
+import org.sonar.plugins.java.api.tree.*;
+
+import java.util.List;
+import java.util.Objects;
 
 @Rule(key = "SlingServletException")
 public class SlingServletExceptionRule extends ExpandedTreeVisitor {
@@ -68,11 +60,19 @@ public class SlingServletExceptionRule extends ExpandedTreeVisitor {
             if (ResponseStatusFinder.isResponseStatusMissing(catchTree.block())) {
                 this.context.reportIssue(this, catchTree.catchKeyword(), WARNING_SET_RESPONSE_CODE_500);
             }
-            final String exceptionTypeFullyQualifiedName = catchTree.parameter().simpleName().symbolType().fullyQualifiedName();
-            if (StringUtils.equals(exceptionTypeFullyQualifiedName, PackageConstants.EXCEPTION)) {
-                this.context.reportIssue(
-                  this, catchTree.catchKeyword(), WarningConstants.WARNING_GENERIC_EXCEPTION);
+
+            final TypeTree parameterTypeTree = catchTree.parameter().type();
+            if (parameterTypeTree.is(Tree.Kind.UNION_TYPE)) {
+                final UnionTypeTree unionTypeTree = (UnionTypeTree) parameterTypeTree;
+                if ((unionTypeTree.typeAlternatives().stream().anyMatch(JavaFinder::isGenericExceptionType))) {
+                    this.context.reportIssue(this, catchTree.catchKeyword(), WarningConstants.WARNING_GENERIC_EXCEPTION);
+                }
+            } else {
+                if (JavaFinder.isGenericExceptionType(parameterTypeTree)){
+                    this.context.reportIssue(this, catchTree.catchKeyword(), WarningConstants.WARNING_GENERIC_EXCEPTION);
+                }
             }
+
         }
     }
 

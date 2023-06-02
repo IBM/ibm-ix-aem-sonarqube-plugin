@@ -16,13 +16,15 @@
 
 package ix.ibm.sonar.java.utils;
 
-import java.util.Objects;
-import java.util.Optional;
-
+import org.apache.commons.lang3.StringUtils;
 import org.sonar.plugins.java.api.semantic.Symbol;
 import org.sonar.plugins.java.api.semantic.Type;
 import org.sonar.plugins.java.api.tree.AnnotationTree;
 import org.sonar.plugins.java.api.tree.MethodTree;
+import org.sonar.plugins.java.api.tree.TypeTree;
+
+import java.util.Objects;
+import java.util.Optional;
 
 public final class JavaFinder {
 
@@ -44,6 +46,11 @@ public final class JavaFinder {
         } else {
             return Optional.empty();
         }
+    }
+
+    public static boolean isGenericExceptionType (final TypeTree typeTree){
+        final String typeFullyQualifiedName = typeTree.symbolType().fullyQualifiedName();
+        return StringUtils.equals(typeFullyQualifiedName, PackageConstants.EXCEPTION);
     }
 
     private JavaFinder() {}
