@@ -18,6 +18,7 @@ package ix.ibm.sonar.java.checks.sling;
 
 import ix.ibm.sonar.java.utils.AemRecognizer;
 import ix.ibm.sonar.java.utils.JavaFinder;
+import ix.ibm.sonar.java.utils.PackageConstants;
 import ix.ibm.sonar.java.utils.WarningConstants;
 import ix.ibm.sonar.java.visitors.ExpandedTreeVisitor;
 import ix.ibm.sonar.java.visitors.OverrideMethodFinder;
@@ -60,19 +61,9 @@ public class SlingServletExceptionRule extends ExpandedTreeVisitor {
             if (ResponseStatusFinder.isResponseStatusMissing(catchTree.block())) {
                 this.context.reportIssue(this, catchTree.catchKeyword(), WARNING_SET_RESPONSE_CODE_500);
             }
-
-            final TypeTree parameterTypeTree = catchTree.parameter().type();
-            if (parameterTypeTree.is(Tree.Kind.UNION_TYPE)) {
-                final UnionTypeTree unionTypeTree = (UnionTypeTree) parameterTypeTree;
-                if ((unionTypeTree.typeAlternatives().stream().anyMatch(JavaFinder::isGenericExceptionType))) {
-                    this.context.reportIssue(this, catchTree.catchKeyword(), WarningConstants.WARNING_GENERIC_EXCEPTION);
-                }
-            } else {
-                if (JavaFinder.isGenericExceptionType(parameterTypeTree)){
-                    this.context.reportIssue(this, catchTree.catchKeyword(), WarningConstants.WARNING_GENERIC_EXCEPTION);
-                }
+            if (JavaFinder.anyOfTheExceptionsBeingCaught(catchTree, PackageConstants.EXCEPTION)){
+                this.context.reportIssue(this, catchTree.catchKeyword(), WarningConstants.WARNING_GENERIC_EXCEPTION);
             }
-
         }
     }
 

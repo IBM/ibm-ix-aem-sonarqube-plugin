@@ -265,24 +265,3 @@ public class DummyServlet8 extends SlingAllMethodsServlet {
         }
     }
 }
-
-@Component(service = Servlet.class)
-@SlingServletName(servletName = "User Report Servlet")
-@SlingServletResourceTypes(resourceTypes = { UserReportServlet.SERVLET_RESOURCE_TYPE }, extensions = "json", methods = HttpConstants.METHOD_GET)
-public class DummyServlet9 extends SlingAllMethodsServlet {
-
-    private static final Logger logger = LoggerFactory.getLogger(TestServlet.class);
-
-    @Override
-    public void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
-        try {
-            final List<ResourceItem> resultItems = this.searchArticles(request.getResourceResolver(), this.getLocale(request), request.getParameter("query"));
-            final Writer writer = response.getWriter();
-            final Gson gson = new GsonBuilder().create();
-            gson.toJson(resultItems, writer);
-        } catch (final RuntimeException | Exception e) { // Noncompliant {{Catch a non-generic exception}}
-            log.error("Error getting search results", e);
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        }
-    }
-}
