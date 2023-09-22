@@ -16,17 +16,13 @@
 
 package ix.ibm.sonar.java.visitors;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import lombok.Getter;
 import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.sonar.plugins.java.api.tree.BaseTreeVisitor;
-import org.sonar.plugins.java.api.tree.LiteralTree;
-import org.sonar.plugins.java.api.tree.MemberSelectExpressionTree;
-import org.sonar.plugins.java.api.tree.MethodInvocationTree;
+import org.sonar.plugins.java.api.tree.*;
 
-import lombok.Getter;
+import java.util.ArrayList;
+import java.util.List;
 
 import static ix.ibm.sonar.java.utils.PackageConstants.SLING_HTTP_SERVLET_RESPONSE;
 
@@ -40,10 +36,14 @@ public class HttpCodeFinder extends BaseTreeVisitor {
 
     @Override
     public void visitMethodInvocation(final MethodInvocationTree tree) {
+        final String methodName = tree.symbol().name();
+        String expressionFqn = StringUtils.EMPTY;
+        if (tree.methodSelect().is(Tree.Kind.MEMBER_SELECT)) {
+            expressionFqn = ((MemberSelectExpressionTree) tree.methodSelect()).expression().symbolType().fullyQualifiedName();
+        }
 
-        final String methodName = ((MemberSelectExpressionTree) tree.methodSelect()).identifier().symbol().name();
         this.isSetHttpSlingResponseStatus = StringUtils.equals(SET_STATUS, methodName) && StringUtils.equals(
-          SLING_HTTP_SERVLET_RESPONSE, ((MemberSelectExpressionTree) tree.methodSelect()).expression().symbolType().fullyQualifiedName());
+          SLING_HTTP_SERVLET_RESPONSE, expressionFqn);
         super.visitMethodInvocation(tree);
         this.isSetHttpSlingResponseStatus = false;
     }
