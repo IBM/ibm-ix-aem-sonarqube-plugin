@@ -16,23 +16,16 @@
 
 package ix.ibm.sonar.java.checks.sling;
 
-import java.util.List;
-import java.util.Objects;
-
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.sonar.check.Rule;
-import org.sonar.plugins.java.api.tree.BlockTree;
-import org.sonar.plugins.java.api.tree.CatchTree;
-import org.sonar.plugins.java.api.tree.MethodTree;
-import org.sonar.plugins.java.api.tree.StatementTree;
-import org.sonar.plugins.java.api.tree.Tree;
-import org.sonar.plugins.java.api.tree.TryStatementTree;
-
 import ix.ibm.sonar.java.utils.JavaFinder;
 import ix.ibm.sonar.java.utils.PackageConstants;
 import ix.ibm.sonar.java.utils.WarningConstants;
 import ix.ibm.sonar.java.visitors.ExpandedTreeVisitor;
+import org.apache.commons.collections4.CollectionUtils;
+import org.sonar.check.Rule;
+import org.sonar.plugins.java.api.tree.*;
+
+import java.util.List;
+import java.util.Objects;
 
 @Rule(key = "PostConstructException")
 public class PostConstructExceptionRule extends ExpandedTreeVisitor {
@@ -63,8 +56,7 @@ public class PostConstructExceptionRule extends ExpandedTreeVisitor {
 
     private void checkCaughtExceptions(final TryStatementTree tryStatementTree) {
         for (final CatchTree catchTree : tryStatementTree.catches()) {
-            final String exceptionTypeFullyQualifiedName = catchTree.parameter().simpleName().symbolType().fullyQualifiedName();
-            if (StringUtils.equals(exceptionTypeFullyQualifiedName, PackageConstants.EXCEPTION)) {
+            if (JavaFinder.anyOfTheExceptionsBeingCaught(catchTree, PackageConstants.EXCEPTION)){
                 this.context.reportIssue(this, catchTree.catchKeyword(), WarningConstants.WARNING_GENERIC_EXCEPTION);
             }
         }
