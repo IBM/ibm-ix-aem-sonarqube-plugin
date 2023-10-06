@@ -15,7 +15,11 @@
  */
 
 import javax.servlet.Servlet;
+
 import org.apache.sling.api.SlingHttpServletResponse;
+
+import javax.servlet.http.HttpServletResponse;
+
 
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
@@ -66,6 +70,34 @@ public class CustomServlet2 extends SlingAllMethodsServlet {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
+    }
+
+}
+
+@Component(service = Servlet.class, immediate = true)
+@SlingServletResourceTypes(resourceTypes = "resourceType", selectors = "selector")
+public class CustomServlet3 extends SlingAllMethodsServlet {
+
+    private static final int NUMBER_OF_COMPONENTS_PER_JOB = 100;
+
+    @Reference
+    private transient EmailService emailService;
+
+    @Override
+    protected void doPost(final SlingHttpServletRequest request, final SlingHttpServletResponse response) {
+        final List<String> failureList = this.emailService.sendEmail(templatePath, emailParams, TARGET_EMAIL_ADDRESS);
+
+        customMethodCall();
+
+        if (failureList.isEmpty()) {
+            response.setStatus(HttpServletResponse.SC_OK);
+        } else {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    private String customMethodCall() {
+        return "a";
     }
 
 }
