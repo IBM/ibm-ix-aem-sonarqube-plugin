@@ -16,14 +16,13 @@
 
 package ix.ibm.sonar.java.visitors;
 
-import java.util.List;
-import java.util.Objects;
-
-import javax.annotation.Nullable;
-
 import org.apache.commons.lang.StringUtils;
 import org.sonar.plugins.java.api.tree.BaseTreeVisitor;
 import org.sonar.plugins.java.api.tree.Tree;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Objects;
 
 public class PrinterVisitor extends BaseTreeVisitor {
 
@@ -66,7 +65,7 @@ public class PrinterVisitor extends BaseTreeVisitor {
                   .indent()
                   .append(nodeName)
                   .append(" :")
-                  .append(tree.firstToken().line())
+                  .append(tree.firstToken().range().start().line())
                   .append(" | ")
                   .append(tree.firstToken().text())
                   .append("\n");

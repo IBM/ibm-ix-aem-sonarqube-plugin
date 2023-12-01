@@ -32,7 +32,7 @@ class MyJavaRulesDefinitionTest {
   @Test
   @DisplayName("GIVEN a MyJavaRulesDefinition, WHEN defining a context, THEN the created rules definition repository should contain the 'AEM ecx.io rules' name and be part of the java language")
   void test() {
-    final MyJavaRulesDefinition rulesDefinition = new MyJavaRulesDefinition();
+    final MyJavaRulesDefinition rulesDefinition = new MyJavaRulesDefinition(new MockedSonarRuntime());
     final RulesDefinition.Context context = new RulesDefinition.Context();
     rulesDefinition.define(context);
     final RulesDefinition.Repository repository = context.repository(MyJavaRulesDefinition.REPOSITORY_KEY);
