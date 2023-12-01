@@ -36,7 +36,7 @@ public class HttpCodeFinder extends BaseTreeVisitor {
 
     @Override
     public void visitMethodInvocation(final MethodInvocationTree tree) {
-        final String methodName = tree.symbol().name();
+        final String methodName = tree.methodSymbol().name();
         String expressionFqn = StringUtils.EMPTY;
         if (tree.methodSelect().is(Tree.Kind.MEMBER_SELECT)) {
             expressionFqn = ((MemberSelectExpressionTree) tree.methodSelect()).expression().symbolType().fullyQualifiedName();

@@ -16,15 +16,14 @@
 
 package ix.ibm.sonar.java.checks.osgi;
 
+import ix.ibm.sonar.java.utils.JavaFinder;
+import ix.ibm.sonar.java.utils.PackageConstants;
+import ix.ibm.sonar.java.visitors.ExpandedTreeVisitor;
 import org.apache.commons.lang.StringUtils;
 import org.sonar.check.Rule;
 import org.sonar.plugins.java.api.semantic.Type;
 import org.sonar.plugins.java.api.tree.IdentifierTree;
 import org.sonar.plugins.java.api.tree.MethodInvocationTree;
-
-import ix.ibm.sonar.java.utils.JavaFinder;
-import ix.ibm.sonar.java.utils.PackageConstants;
-import ix.ibm.sonar.java.visitors.ExpandedTreeVisitor;
 
 @Rule(key = "AvoidJcrApi")
 public class AvoidJcrApiRule extends ExpandedTreeVisitor {
@@ -33,7 +32,7 @@ public class AvoidJcrApiRule extends ExpandedTreeVisitor {
 
     @Override
     public void visitMethodInvocation(final MethodInvocationTree tree) {
-        final String fullyQualifiedName = JavaFinder.getEnclosingClassName(tree.symbol()).orElse(StringUtils.EMPTY);
+        final String fullyQualifiedName = JavaFinder.getEnclosingClassName(tree.methodSymbol()).orElse(StringUtils.EMPTY);
 
         if (StringUtils.equals(fullyQualifiedName, PackageConstants.JCR_NODE) || StringUtils.equals(
           fullyQualifiedName, PackageConstants.JCR_SESSION)) {
