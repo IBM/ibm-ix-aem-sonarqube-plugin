@@ -10,5 +10,12 @@
     "convention",
     "aem"
   ],
-  "defaultSeverity": "Critical"
+  "defaultSeverity": "Critical",
+  "code": {
+    "impacts": {
+      "RELIABILITY": "MEDIUM",
+      "SECURITY": "HIGH"
+    },
+    "attribute": "TRUSTWORTHY"
+  }
 }

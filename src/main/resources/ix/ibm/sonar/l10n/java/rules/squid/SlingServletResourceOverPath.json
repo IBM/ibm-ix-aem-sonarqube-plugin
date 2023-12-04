@@ -10,5 +10,11 @@
     "convention",
     "aem"
   ],
-  "defaultSeverity": "Info"
+  "defaultSeverity": "Info",
+  "code": {
+    "impacts": {
+      "SECURITY": "LOW"
+    },
+    "attribute": "CONVENTIONAL"
+  }
 }
