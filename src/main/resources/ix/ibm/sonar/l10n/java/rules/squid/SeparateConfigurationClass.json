@@ -10,5 +10,11 @@
     "bad-practice",
     "aem"
   ],
-  "defaultSeverity": "Minor"
+  "defaultSeverity": "Minor",
+  "code": {
+    "impacts": {
+      "MAINTAINABILITY": "LOW"
+    },
+    "attribute": "MODULAR"
+  }
 }
