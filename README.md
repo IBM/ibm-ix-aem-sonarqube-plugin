@@ -23,8 +23,7 @@ The rules can be easily added to [SonarQube](https://www.sonarqube.org/) and use
 3. Restart the SonarQube instance
 
 ## Compatiblity
-
-This plugin only supports SonarQube versions starting from v8.9.
+The newest version of this plugin (v1.3) only supports SonarQube versions starting from v9.9. If you are using older versions of SonarQube, v1.2 of this plugin can be used for SonarQube v8.9 or newer, although with some known issues that were fixed in the latest version.
 
 Note: since this plugin is written in Java 11, you must make sure not to run the Sonar scanner using an older Java version (usually inside the CI/CD pipeline). This does not impact the code itself that is being analysed (which can use any Java version). This is only relevant if you are using SonarQube v8.9 as all newer versions no longer support running scanner with Java 8. 
 
