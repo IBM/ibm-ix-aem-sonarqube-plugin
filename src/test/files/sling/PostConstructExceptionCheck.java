@@ -13,6 +13,7 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+import java.io.IOException;
 
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -164,3 +165,19 @@ public class ShippingInformationModel5 {
     }
 
 }
+
+@Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+public class SlingModel6 {
+
+    @PostConstruct
+    void init() {
+        try {
+            int a = 5;
+        } catch (final RuntimeException | IOException e) {
+            logger.error("Exception in post construct", ex);
+        }
+    }
+
+}
+
+

@@ -22,22 +22,13 @@
 
 package ix.ibm.sonar.java.visitors;
 
+import org.sonar.plugins.java.api.tree.*;
+import org.sonar.plugins.java.api.tree.Tree.Kind;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-
-import org.sonar.plugins.java.api.tree.AssignmentExpressionTree;
-import org.sonar.plugins.java.api.tree.BaseTreeVisitor;
-import org.sonar.plugins.java.api.tree.IdentifierTree;
-import org.sonar.plugins.java.api.tree.MemberSelectExpressionTree;
-import org.sonar.plugins.java.api.tree.MethodInvocationTree;
-import org.sonar.plugins.java.api.tree.MethodTree;
-import org.sonar.plugins.java.api.tree.ReturnStatementTree;
-import org.sonar.plugins.java.api.tree.Tree;
-import org.sonar.plugins.java.api.tree.Tree.Kind;
-import org.sonar.plugins.java.api.tree.TryStatementTree;
-import org.sonar.plugins.java.api.tree.VariableTree;
 
 /**
  * Finds all injector variable declarations. Used in method's bodies only.
@@ -121,7 +112,7 @@ public class FindSessionDeclarationVisitor extends BaseTreeVisitor {
     }
 
     private boolean isSlingRepository(final MethodInvocationTree methodInvocation) {
-        return methodInvocation.symbol().owner().type().fullyQualifiedName().equals(SLING_REPOSITORY);
+        return methodInvocation.methodSymbol().owner().type().fullyQualifiedName().equals(SLING_REPOSITORY);
     }
 
     private boolean isSession(final MethodInvocationTree methodInvocation) {

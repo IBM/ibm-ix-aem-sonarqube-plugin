@@ -13,6 +13,7 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+import java.io.IOException;
 
 import javax.servlet.Servlet;
 import javax.servlet.http.HttpServletResponse;
@@ -28,9 +29,9 @@ import org.osgi.service.component.annotations.Component;
 @Component(service = Servlet.class)
 @SlingServletName(servletName = "User Report Servlet")
 @SlingServletResourceTypes(resourceTypes = { UserReportServlet.SERVLET_RESOURCE_TYPE }, extensions = "json", methods = HttpConstants.METHOD_GET)
-public class ClubOfferImportServlet extends SlingAllMethodsServlet {
+public class TestServlet extends SlingAllMethodsServlet {
 
-    private static final Logger logger = LoggerFactory.getLogger(ClubOfferImportServlet.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestServlet.class);
 
     @Override
     public void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
@@ -66,9 +67,9 @@ public class ClubOfferImportServlet extends SlingAllMethodsServlet {
 @Component(service = Servlet.class)
 @SlingServletName(servletName = "User Report Servlet")
 @SlingServletResourceTypes(resourceTypes = { UserReportServlet.SERVLET_RESOURCE_TYPE }, extensions = "json", methods = HttpConstants.METHOD_GET)
-public class ClubOfferImportServlet2 extends SlingAllMethodsServlet {
+public class TestServlet2 extends SlingAllMethodsServlet {
 
-    private static final Logger logger = LoggerFactory.getLogger(ClubOfferImportServlet.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestServlet.class);
 
     @Override
     public void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
@@ -116,9 +117,9 @@ public class ClubOfferImportServlet2 extends SlingAllMethodsServlet {
 @Component(service = Servlet.class)
 @SlingServletName(servletName = "User Report Servlet")
 @SlingServletResourceTypes(resourceTypes = { UserReportServlet.SERVLET_RESOURCE_TYPE }, extensions = "json", methods = HttpConstants.METHOD_GET)
-public class ClubOfferImportServlet3 extends SlingSafeMethodsServlet {
+public class TestServlet3 extends SlingSafeMethodsServlet {
 
-    private static final Logger logger = LoggerFactory.getLogger(ClubOfferImportServlet.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestServlet.class);
 
     @Override
     public void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
@@ -153,9 +154,9 @@ public class ClubOfferImportServlet3 extends SlingSafeMethodsServlet {
 @Component(service = Servlet.class)
 @SlingServletName(servletName = "User Report Servlet")
 @SlingServletResourceTypes(resourceTypes = { UserReportServlet.SERVLET_RESOURCE_TYPE }, extensions = "json", methods = HttpConstants.METHOD_GET)
-public class ClubOfferImportServlet4 extends SlingAllMethodsServlet {
+public class TestServlet4 extends SlingAllMethodsServlet {
 
-    private static final Logger logger = LoggerFactory.getLogger(ClubOfferImportServlet.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestServlet.class);
 
     @Override
     public void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException { // Noncompliant {{Wrap all the code in a try-catch clause}}
@@ -181,9 +182,9 @@ public class ClubOfferImportServlet4 extends SlingAllMethodsServlet {
 @Component(service = Servlet.class)
 @SlingServletName(servletName = "User Report Servlet")
 @SlingServletResourceTypes(resourceTypes = { UserReportServlet.SERVLET_RESOURCE_TYPE }, extensions = "json", methods = HttpConstants.METHOD_GET)
-public class ClubOfferImportServlet5 extends SlingAllMethodsServlet {
+public class TestServlet5 extends SlingAllMethodsServlet {
 
-    private static final Logger logger = LoggerFactory.getLogger(ClubOfferImportServlet.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestServlet.class);
 
     @Override
     public void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
@@ -203,9 +204,9 @@ public class ClubOfferImportServlet5 extends SlingAllMethodsServlet {
 @Component(service = Servlet.class)
 @SlingServletName(servletName = "User Report Servlet")
 @SlingServletResourceTypes(resourceTypes = { UserReportServlet.SERVLET_RESOURCE_TYPE }, extensions = "json", methods = HttpConstants.METHOD_GET)
-public class ClubOfferImportServlet6 extends SlingAllMethodsServlet {
+public class TestServlet6 extends SlingAllMethodsServlet {
 
-    private static final Logger logger = LoggerFactory.getLogger(ClubOfferImportServlet.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestServlet.class);
 
     @Override
     public void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
@@ -220,4 +221,47 @@ public class ClubOfferImportServlet6 extends SlingAllMethodsServlet {
         }
     }
 
+}
+
+@Component(service = Servlet.class)
+@SlingServletName(servletName = "User Report Servlet")
+@SlingServletResourceTypes(resourceTypes = { UserReportServlet.SERVLET_RESOURCE_TYPE }, extensions = "json", methods = HttpConstants.METHOD_GET)
+public class DummyServlet7 extends SlingAllMethodsServlet {
+
+    private static final Logger logger = LoggerFactory.getLogger(TestServlet.class);
+
+    @Override
+    public void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
+        try {
+            final List<ResourceItem> resultItems = this.searchArticles(request.getResourceResolver(), this.getLocale(request), request.getParameter("query"));
+            final Writer writer = response.getWriter();
+            final Gson gson = new GsonBuilder().create();
+            gson.toJson(resultItems, writer);
+        } catch (final IOException e) {
+            log.error("Error getting search results", e);
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+}
+
+@Component(service = Servlet.class)
+@SlingServletName(servletName = "User Report Servlet")
+@SlingServletResourceTypes(resourceTypes = { UserReportServlet.SERVLET_RESOURCE_TYPE }, extensions = "json", methods = HttpConstants.METHOD_GET)
+public class DummyServlet8 extends SlingAllMethodsServlet {
+
+    private static final Logger logger = LoggerFactory.getLogger(TestServlet.class);
+
+    @Override
+    public void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
+        try {
+            final List<ResourceItem> resultItems = this.searchArticles(request.getResourceResolver(), this.getLocale(request), request.getParameter("query"));
+            final Writer writer = response.getWriter();
+            final Gson gson = new GsonBuilder().create();
+            gson.toJson(resultItems, writer);
+        } catch (final RuntimeException | IOException e) {
+            log.error("Error getting search results", e);
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
+    }
 }

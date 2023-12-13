@@ -16,13 +16,13 @@
 
 package ix.ibm.sonar.java.utils;
 
-import java.util.Objects;
-import java.util.Optional;
-
+import org.apache.commons.lang3.StringUtils;
 import org.sonar.plugins.java.api.semantic.Symbol;
 import org.sonar.plugins.java.api.semantic.Type;
-import org.sonar.plugins.java.api.tree.AnnotationTree;
-import org.sonar.plugins.java.api.tree.MethodTree;
+import org.sonar.plugins.java.api.tree.*;
+
+import java.util.Objects;
+import java.util.Optional;
 
 public final class JavaFinder {
 
@@ -46,6 +46,26 @@ public final class JavaFinder {
         }
     }
 
-    private JavaFinder() {}
+    public static boolean anyOfTheExceptionsBeingCaught(final CatchTree catchTree, final String... exceptionFullyQualifiedNames) {
+        boolean exceptionMatchFound = false;
+        final TypeTree parameterTypeTree = catchTree.parameter().type();
+        if (parameterTypeTree.is(Tree.Kind.UNION_TYPE)) {
+            final UnionTypeTree unionTypeTree = (UnionTypeTree) parameterTypeTree;
+            if ((unionTypeTree.typeAlternatives().stream().anyMatch(typeTree -> typeTreeContainsAnyOfTheExceptions(typeTree, exceptionFullyQualifiedNames)))) {
+                exceptionMatchFound = true;
+            }
+        } else if (typeTreeContainsAnyOfTheExceptions(parameterTypeTree, exceptionFullyQualifiedNames)) {
+            exceptionMatchFound = true;
+        }
+        return exceptionMatchFound;
+    }
+
+    public static boolean typeTreeContainsAnyOfTheExceptions(final TypeTree typeTree, final String... exceptionFullyQualifiedNames) {
+        final String typeFullyQualifiedName = typeTree.symbolType().fullyQualifiedName();
+        return StringUtils.equalsAny(typeFullyQualifiedName, exceptionFullyQualifiedNames);
+    }
+
+    private JavaFinder() {
+    }
 
 }

@@ -10,5 +10,11 @@
     "convention",
     "aem"
   ],
-  "defaultSeverity": "Minor"
+  "defaultSeverity": "Minor",
+  "code": {
+    "impacts": {
+      "RELIABILITY": "LOW"
+    },
+    "attribute": "CONVENTIONAL"
+  }
 }

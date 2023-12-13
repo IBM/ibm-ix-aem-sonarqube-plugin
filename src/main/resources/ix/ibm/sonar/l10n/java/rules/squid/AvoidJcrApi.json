@@ -10,5 +10,11 @@
     "bad-practice",
     "aem"
   ],
-  "defaultSeverity": "Info"
+  "defaultSeverity": "Info",
+  "code": {
+    "impacts": {
+      "MAINTAINABILITY": "LOW"
+    },
+    "attribute": "CONVENTIONAL"
+  }
 }

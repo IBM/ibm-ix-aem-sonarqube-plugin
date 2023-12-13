@@ -5,7 +5,7 @@
 
     <groupId>ix.ibm.sonar.java.rules</groupId>
     <artifactId>ibmix-aem-sonar-rules</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
     <packaging>sonar-plugin</packaging>
 
     <name>IBM iX AEM Sonar rules</name>
@@ -56,10 +56,9 @@
     </issueManagement>
 
     <properties>
-        <sonar.version>8.9.0.43852</sonar.version>
-        <sslr.version>1.24.0.633</sslr.version>
-        <junit.version>5.8.0</junit.version>
-        <sonarjava.version>7.1.0.26670</sonarjava.version>
+        <sonar.api.version>9.14.0.375</sonar.api.version>
+        <junit.version>5.10.1</junit.version>
+        <sonarjava.version>7.28.0.33738</sonarjava.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <sonar.organization>ibm-ix-aem-sonarqube-rules</sonar.organization>
@@ -68,53 +67,17 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.sonarsource.sonarqube</groupId>
+            <groupId>org.sonarsource.api.plugin</groupId>
             <artifactId>sonar-plugin-api</artifactId>
-            <version>${sonar.version}</version>
+            <version>${sonar.api.version}</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>org.sonarsource.java</groupId>
             <artifactId>sonar-java-plugin</artifactId>
             <type>sonar-plugin</type>
             <version>${sonarjava.version}</version>
             <scope>provided</scope>
-        </dependency>
-
-        <!-- Required since SonarQube > 8.1 -->
-        <dependency>
-            <groupId>org.sonarsource.sonarqube</groupId>
-            <artifactId>sonar-plugin-api-impl</artifactId>
-            <version>${sonar.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.sonarsource.sslr-squid-bridge</groupId>
-            <artifactId>sslr-squid-bridge</artifactId>
-            <version>2.7.1.392</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.codehaus.sonar.sslr</groupId>
-                    <artifactId>sslr-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.codehaus.sonar</groupId>
-                    <artifactId>sonar-plugin-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.codehaus.sonar.sslr</groupId>
-                    <artifactId>sslr-xpath</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>jcl-over-slf4j</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -127,14 +90,7 @@
         <dependency>
             <groupId>org.sonarsource.analyzer-commons</groupId>
             <artifactId>sonar-analyzer-commons</artifactId>
-            <version>1.22.0.848</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.sonarsource.sslr</groupId>
-            <artifactId>sslr-testing-harness</artifactId>
-            <version>${sslr.version}</version>
-            <scope>test</scope>
+            <version>2.7.0.1482</version>
         </dependency>
 
         <dependency>
@@ -146,13 +102,13 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>30.1.1-jre</version>
+            <version>31.1-jre</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.32</version>
+            <version>2.0.5</version>
         </dependency>
 
         <dependency>
@@ -169,23 +125,16 @@
             <scope>test</scope>
         </dependency>
 
-
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.20.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.6</version>
+            <version>3.24.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
+            <version>1.18.26</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -205,7 +154,7 @@
             <plugin>
                 <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
                 <artifactId>sonar-packaging-maven-plugin</artifactId>
-                <version>1.21.0.505</version>
+                <version>1.23.0.740</version>
                 <extensions>true</extensions>
                 <configuration>
                     <pluginKey>ibmixaemrules</pluginKey>
@@ -214,14 +163,14 @@
                     <pluginUrl>https://github.com/IBM/ibm-ix-aem-sonarqube-plugin</pluginUrl>
                     <sonarLintSupported>true</sonarLintSupported>
                     <skipDependenciesPackaging>true</skipDependenciesPackaging>
-                    <sonarQubeMinVersion>8.9</sonarQubeMinVersion>
+                    <pluginApiMinVersion>9.9</pluginApiMinVersion>
                 </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.5.1</version>
                 <configuration>
                 </configuration>
                 <executions>
@@ -237,7 +186,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>3.11.0</version>
                 <configuration>
                     <source>11</source>
                     <target>11</target>
@@ -248,7 +197,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
+                <version>3.6.1</version>
                 <executions>
                     <execution>
                         <id>copy</id>

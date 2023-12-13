@@ -167,3 +167,50 @@ public class FooBarFilter5 implements Filter {
     }
 
 }
+
+@Component
+@SlingServletFilter(scope = { SlingServletFilterScope.REQUEST }, suffix_pattern = "/suffix/foo", resourceTypes = {
+        "foo/bar" }, pattern = "/content/.*", extensions = { "txt", "json" }, selectors = { "foo", "bar" }, methods = { "GET", "HEAD" })
+public class FooBarFilter6 implements Filter {
+    @Override
+    public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain) { // Noncompliant {{Put all the custom code in a try-catch clause (except for the doFilter call)}}
+        try {
+            final HttpServletResponse httpResponse = (HttpServletResponse) response;
+            httpResponse.addHeader("my-custom-header", "header-value");
+        } catch (final IOException | ServletException e) { // Noncompliant {{Do not catch IOException or ServletException, it might cause unexpected behaviour}}
+            logger.error("Exception in request filter", e);
+        }
+        int a = 5;
+    }
+}
+
+@Component
+@SlingServletFilter(scope = { SlingServletFilterScope.REQUEST }, suffix_pattern = "/suffix/foo", resourceTypes = {
+        "foo/bar" }, pattern = "/content/.*", extensions = { "txt", "json" }, selectors = { "foo", "bar" }, methods = { "GET", "HEAD" })
+public class FooBarFilter7 implements Filter {
+    @Override
+    public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain) {
+        try {
+            final HttpServletResponse httpResponse = (HttpServletResponse) response;
+            httpResponse.addHeader("my-custom-header", "header-value");
+        } catch (final RuntimeException | IOException e) { // Noncompliant {{Do not catch IOException or ServletException, it might cause unexpected behaviour}}
+            logger.error("Exception in request filter", e);
+        }
+    }
+}
+
+@Component
+@SlingServletFilter(scope = { SlingServletFilterScope.REQUEST }, suffix_pattern = "/suffix/foo", resourceTypes = {
+        "foo/bar" }, pattern = "/content/.*", extensions = { "txt", "json" }, selectors = { "foo", "bar" }, methods = { "GET", "HEAD" })
+public class FooBarFilter8 implements Filter {
+    @Override
+    public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain) {
+        try {
+            final HttpServletResponse httpResponse = (HttpServletResponse) response;
+            httpResponse.addHeader("my-custom-header", "header-value");
+        } catch (final RuntimeException | IllegalArgumentException e) {
+            logger.error("Exception in request filter", e);
+        }
+    }
+}
+
