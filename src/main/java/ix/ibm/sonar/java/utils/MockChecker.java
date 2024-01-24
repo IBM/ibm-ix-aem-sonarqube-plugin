@@ -44,4 +44,6 @@ public final class MockChecker {
                 .filter(modifierTree -> modifierTree.is(Tree.Kind.ANNOTATION))
                 .anyMatch(modifierTree -> ((AnnotationTree) modifierTree).symbolType().is(PackageConstants.MOCK_ANNOTATION));
     }
+
+    private MockChecker() {}
 }
