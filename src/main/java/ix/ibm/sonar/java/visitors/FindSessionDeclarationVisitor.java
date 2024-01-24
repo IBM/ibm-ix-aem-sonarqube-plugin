@@ -22,6 +22,7 @@
 
 package ix.ibm.sonar.java.visitors;
 
+import ix.ibm.sonar.java.utils.PackageConstants;
 import org.sonar.plugins.java.api.tree.*;
 import org.sonar.plugins.java.api.tree.Tree.Kind;
 
@@ -34,8 +35,6 @@ import java.util.Set;
  * Finds all injector variable declarations. Used in method's bodies only.
  */
 public class FindSessionDeclarationVisitor extends BaseTreeVisitor {
-
-    private static final String JCR_SESSION = "javax.jcr.Session";
 
     private static final String SLING_REPOSITORY = "org.apache.sling.jcr.api.SlingRepository";
 
@@ -112,11 +111,11 @@ public class FindSessionDeclarationVisitor extends BaseTreeVisitor {
     }
 
     private boolean isSlingRepository(final MethodInvocationTree methodInvocation) {
-        return methodInvocation.methodSymbol().owner().type().fullyQualifiedName().equals(SLING_REPOSITORY);
+        return methodInvocation.symbol().owner().type().fullyQualifiedName().equals(SLING_REPOSITORY);
     }
 
     private boolean isSession(final MethodInvocationTree methodInvocation) {
-        return methodInvocation.symbolType().fullyQualifiedName().equals(JCR_SESSION);
+        return methodInvocation.symbolType().fullyQualifiedName().equals(PackageConstants.JCR_SESSION);
     }
 
     @Override

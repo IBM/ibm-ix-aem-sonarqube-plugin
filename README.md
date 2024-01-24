@@ -23,7 +23,7 @@ The rules can be easily added to [SonarQube](https://www.sonarqube.org/) and use
 3. Restart the SonarQube instance
 
 ## Compatiblity
-The newest version of this plugin (v1.3) only supports SonarQube versions starting from v9.9. If you are using older versions of SonarQube, v1.2 of this plugin can be used for SonarQube v8.9 or newer, although with some known issues that were fixed in the latest version.
+The newest version of this plugin (v1.4) only supports SonarQube versions starting from v9.9. If you are using older versions of SonarQube, v1.2 of this plugin can be used for SonarQube v8.9 or newer, although with some known issues that were fixed in the latest version.
 
 Note: since this plugin is written in Java 11, you must make sure not to run the Sonar scanner using an older Java version (usually inside the CI/CD pipeline). This does not impact the code itself that is being analysed (which can use any Java version). This is only relevant if you are using SonarQube v8.9 as all newer versions no longer support running scanner with Java 8. 
 
@@ -86,11 +86,27 @@ All the rules can be found in the `IBM iX AEM rules` repository when using the S
     - Use `HttpServletResponse` class constants for Http response codes instead of using hardcoded numbers
     
 17. **[UseConstantsForLiterals](assets/readme/UseConstantsForLiterals.md)** - _Use provided constants for String literals_
-    - Use available constants over String literals or self declared constants.    
+    - Use available constants over String literals or self-declared constants.    
 
 18. **[UseInjectorSpecificAnnotations](assets/readme/UseInjectorSpecificAnnotations.md)** - _Use injector specific annotations_
     - Instead of using the `@Inject` annotation for every object, it is recommended to use injector-specific annotations
-    
+
+19. **[AvoidInjectMocksUsage](assets/readme/AvoidInjectMocksUsage.md)** - _Avoid using Mockito `InjectMocks` in tests_
+    - Register services into the AEM context instead of using Mockito `InjectMocks`.
+
+20. **[AvoidMockingOsgiComponents](assets/readme/AvoidMockingOsgiComponents.md)** - _Avoid mocking OSGi component implementations in tests_
+    - Avoid mocking OSGi component implementations, create a stub implementation or mock the interface instead
+
+21. **[AvoidMockingRequestAndResponse](assets/readme/AvoidMockingRequestAndResponse.md)** - _Avoid mocking Sling request and response objects in tests_
+    - Instead of mocking Sling request and response objects, use the ones available from the mocked context.
+
+22. **[AvoidMockingResourceHandlingObjects](assets/readme/AvoidMockingResourceHandlingObjects.md)** - _Avoid mocking resource handling objects in tests_
+    - Avoid mocking `ResourceResolver` or `Session` objects as they already come provided in the context
+
+23. **[AvoidMockingSlingModels](assets/readme/AvoidMockingSlingModels.md)** - _Avoid mocking Sling models in tests_
+    - Adapt Sling models from a context resource/request instead of mocking them
+
+
 
 
 ## License
