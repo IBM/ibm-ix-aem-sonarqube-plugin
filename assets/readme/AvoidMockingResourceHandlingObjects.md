@@ -1,4 +1,4 @@
-<p>When writing tests with aem-mocks it is preferred not to mock resource handling objects, such as ResourceResolver or Session, as they are already provided
+<p>When writing tests with <a href="https://wcm.io/testing/aem-mock/">aem-mocks</a> it is preferred not to mock resource handling objects, such as ResourceResolver or Session, as they are already provided
     in the test context. You can also specify the type of the ResourceResolver implementation you wish to use from the multiple ones provided by the
     aem-mocks library, depending on the level of functionality you need for the test environment. </p>
 

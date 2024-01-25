@@ -1,4 +1,4 @@
-<p>When writing tests with aem-mocks avoid mocking the implementation of a OSGi component, but
+<p>When writing tests with <a href="https://wcm.io/testing/aem-mock/">aem-mocks</a> avoid mocking the implementation of a OSGi component, but
     rather create a stub implementation or mock the interface of the component instead if really needed.
 </p>
 

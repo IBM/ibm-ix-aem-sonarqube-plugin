@@ -1,4 +1,4 @@
-<p>When writing tests with aem-mocks it is unnecessary to mock Sling request and response objects as they can be retrieved from the mock context and the
+<p>When writing tests with <a href="https://wcm.io/testing/aem-mock/">aem-mocks</a> it is unnecessary to mock Sling request and response objects as they can be retrieved from the mock context and the
     current resource can be easily changed using the provided method calls. If more complicated behaviour needs to be tested that requires mockito functionality,
     the provided request and response objects can be spied by Mockito instead</p>
 

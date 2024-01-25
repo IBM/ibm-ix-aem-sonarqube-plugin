@@ -1,5 +1,5 @@
-<p>When writing tests with <a href="https://wcm.io/testing/aem-mock/">aem-mocks</a> avoid mocking the implementation of a OSGi component, but
-    rather create a stub implementation or mock the interface of the component instead if really needed.
+<p>When writing tests with aem-mocks it is preferred to use the provided AemContext to inject any dependencies into classes which are needed for testing rather than to use InjectMocks from Mockito.
+This way you can also properly utilize all the out-of-the-box registered classes in the context (e.g. ResourceResolverFactory, ResourceResolver, Externalizer, XSSApi) 
 </p>
 
 | Additional Information |        |
@@ -15,7 +15,13 @@
 class TestClass {
 
     @Mock
-    private DummyServiceImpl dummyServiceImpl;
+    private Externalizer externalizer;
+
+    @Mock
+    private CustomService customService;
+
+    @InjectMocks
+    private LinkServiceImpl linkServiceImpl = new LinkServiceImpl();
 
     @Test
     void testDummmy() {
@@ -26,29 +32,43 @@ class TestClass {
 <h2>Compliant Solution</h2>
 
 ```java
-@ExtendWith(AemContextExtension.class)
+@ExtendWith({AemContextExtension.class, MockitoExtension.class})
 class TestClass {
 
+    @Mock
+    private CustomService customService;
+
+    private LinkServiceImpl linkServiceImpl = new LinkServiceImpl();
+    
     @Test
     void testDummmy() {
         AemContext aemContext = new AemContextBuilder().build();
-        aemContext.registerService(DummyService.class, new DummyServiceMock());
+        aemContext.registerService(CustomService.class, customService);
+        aemContext.registerInjectActivateService(linkServiceImpl);
         ...
     }
 }
 ```
 
-<p>or</p>
+<p>
+Or an alternative approach could be to have a stubbed version of the object that needs to be mocked (in this case it is the "CustomService" class) with
+a dummy implementation that returns static values or performs just rudimentary logic when returning a response.
+The upside of such an approach is that you can reuse the stub in any future tests instead of duplicating the same when-then logic in various places.
+</p>
 
 ```java
-@ExtendWith({AemContextExtension.class, MockitoExtension.class})
+@ExtendWith(AemContextExtension.class)
 class TestClass {
 
-    @Mock
-    private DummyService dummyService;
+    private CustomService customService = new CustomServiceMock();
 
+    private LinkServiceImpl linkServiceImpl = new LinkServiceImpl();
+    
     @Test
     void testDummmy() {
+        AemContext aemContext = new AemContextBuilder().build();
+        aemContext.registerService(CustomService.class, customService);
+        aemContext.registerInjectActivateService(linkServiceImpl);
         ...
     }
 }

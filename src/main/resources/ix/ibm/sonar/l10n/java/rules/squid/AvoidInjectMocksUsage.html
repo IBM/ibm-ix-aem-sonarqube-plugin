@@ -1,5 +1,5 @@
 <p>When writing tests with aem-mocks it is preferred to use the provided AemContext to inject
-    any dependencies into classes which are needed for testing then to use InjectMocks from Mockito.
+    any dependencies into classes which are needed for testing rather than to use InjectMocks from Mockito.
     This way you can also properly utilize all the out-of-the-box registered classes in the context
     (e.g. ResourceResolverFactory, ResourceResolver, Externalizer, XSSApi) </p>
 
@@ -15,7 +15,7 @@ class TestClass {
     private CustomService customService;
 
     @InjectMocks
-    private LinkService linkService;
+    private LinkServiceImpl linkServiceImpl = new LinkServiceImpl();
 
     @Test
     void testDummmy() {
@@ -30,13 +30,13 @@ class TestClass {
     @Mock
     private CustomService customService;
 
-    private LinkService linkService;
+    private LinkServiceImpl linkServiceImpl = new LinkServiceImpl();
 
     @Test
     void testDummmy() {
         AemContext aemContext = new AemContextBuilder().build();
         aemContext.registerService(CustomService.class, customService);
-        aemContext.registerInjectActivateService(linkService);
+        aemContext.registerInjectActivateService(linkServiceImpl);
         ...
     }
 }
@@ -54,15 +54,14 @@ class TestClass {
 
     private CustomService customService = new CustomServiceMock();
 
-    private LinkService linkService;
+    private LinkServiceImpl linkServiceImpl = new LinkServiceImpl();
 
     @Test
     void testDummmy() {
         AemContext aemContext = new AemContextBuilder().build();
         aemContext.registerService(CustomService.class, customService);
-        aemContext.registerInjectActivateService(linkService);
+        aemContext.registerInjectActivateService(linkServiceImpl);
         ...
     }
 }
-
 </pre>

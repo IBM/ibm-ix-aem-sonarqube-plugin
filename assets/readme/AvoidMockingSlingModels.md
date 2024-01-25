@@ -1,4 +1,4 @@
-<p>When writing tests with aem-mocks it is not a good practice to mock Sling models, but rather to adapt them from
+<p>When writing tests with <a href="https://wcm.io/testing/aem-mock/">aem-mocks</a> it is not a good practice to mock Sling models, but rather to adapt them from
     a resource or request (depending on the adaptable type) as it would usually happen in normal runtime. By doing it that
     way, you will also have the dependency injection automatically handled based on the services and content
     already present in the test context.</p>
