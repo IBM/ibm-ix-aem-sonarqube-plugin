@@ -164,6 +164,7 @@
                     <sonarLintSupported>true</sonarLintSupported>
                     <skipDependenciesPackaging>true</skipDependenciesPackaging>
                     <pluginApiMinVersion>9.9</pluginApiMinVersion>
+                    <requiredForLanguages>java</requiredForLanguages>
                 </configuration>
             </plugin>
 
