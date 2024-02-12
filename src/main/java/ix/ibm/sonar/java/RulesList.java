@@ -16,30 +16,17 @@
 
 package ix.ibm.sonar.java;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import org.sonar.plugins.java.api.JavaCheck;
-
 import ix.ibm.sonar.java.checks.UseConstantsForLiteralsRule;
+import ix.ibm.sonar.java.checks.mocks.*;
 import ix.ibm.sonar.java.checks.osgi.AvoidFelixAnnotationsRule;
 import ix.ibm.sonar.java.checks.osgi.AvoidJcrApiRule;
 import ix.ibm.sonar.java.checks.osgi.SeparateConfigurationClassRule;
-import ix.ibm.sonar.java.checks.sling.AvoidDeprecatedAdministrativeRule;
-import ix.ibm.sonar.java.checks.sling.AvoidOldSlingServletAnnotationsRule;
-import ix.ibm.sonar.java.checks.sling.AvoidWcmUsePojoClassRule;
-import ix.ibm.sonar.java.checks.sling.CloseJcrSessionRule;
-import ix.ibm.sonar.java.checks.sling.DefaultInjectionStrategyRule;
-import ix.ibm.sonar.java.checks.sling.FilterExceptionRule;
-import ix.ibm.sonar.java.checks.sling.PostConstructExceptionRule;
-import ix.ibm.sonar.java.checks.sling.PreferInjectionOverAdaptionRule;
-import ix.ibm.sonar.java.checks.sling.SlingServletExceptionRule;
-import ix.ibm.sonar.java.checks.sling.SlingServletResourceOverPathRule;
-import ix.ibm.sonar.java.checks.sling.ThreadSafeObjectsRule;
-import ix.ibm.sonar.java.checks.sling.TryWithResourcesResourceResolverRule;
-import ix.ibm.sonar.java.checks.sling.UseConstantsForHttpCodesRule;
-import ix.ibm.sonar.java.checks.sling.UseInjectorSpecificAnnotationsRule;
+import ix.ibm.sonar.java.checks.sling.*;
+import org.sonar.plugins.java.api.JavaCheck;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public final class RulesList {
 
@@ -55,14 +42,15 @@ public final class RulesList {
 
     static List<Class<? extends JavaCheck>> getJavaChecks() {
         return List.of(DefaultInjectionStrategyRule.class, AvoidWcmUsePojoClassRule.class, UseInjectorSpecificAnnotationsRule.class,
-          AvoidFelixAnnotationsRule.class, AvoidJcrApiRule.class, AvoidOldSlingServletAnnotationsRule.class, SlingServletResourceOverPathRule.class,
-          UseConstantsForHttpCodesRule.class, SeparateConfigurationClassRule.class, PreferInjectionOverAdaptionRule.class,
-          PostConstructExceptionRule.class, SlingServletExceptionRule.class, FilterExceptionRule.class, TryWithResourcesResourceResolverRule.class,
-          CloseJcrSessionRule.class, AvoidDeprecatedAdministrativeRule.class, ThreadSafeObjectsRule.class, UseConstantsForLiteralsRule.class);
+                AvoidFelixAnnotationsRule.class, AvoidJcrApiRule.class, AvoidOldSlingServletAnnotationsRule.class, SlingServletResourceOverPathRule.class,
+                UseConstantsForHttpCodesRule.class, SeparateConfigurationClassRule.class, PreferInjectionOverAdaptionRule.class,
+                PostConstructExceptionRule.class, SlingServletExceptionRule.class, FilterExceptionRule.class, TryWithResourcesResourceResolverRule.class,
+                CloseJcrSessionRule.class, AvoidDeprecatedAdministrativeRule.class, ThreadSafeObjectsRule.class, UseConstantsForLiteralsRule.class);
     }
 
     static List<Class<? extends JavaCheck>> getJavaTestChecks() {
-        return Collections.emptyList();
+        return List.of(AvoidInjectMocksUsage.class, AvoidMockingRequestAndResponse.class, AvoidMockingOsgiComponents.class, AvoidMockingSlingModels.class,
+                AvoidMockingResourceHandlingObjects.class);
     }
 
 }

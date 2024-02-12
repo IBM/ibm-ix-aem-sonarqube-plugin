@@ -1,0 +1,21 @@
+{
+  "title": "Avoid InjectMocks usage",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "15min"
+  },
+  "tags": [
+    "bad-practice",
+    "aem",
+    "tests"
+  ],
+  "defaultSeverity": "Major",
+  "code": {
+    "impacts": {
+      "MAINTAINABILITY": "MEDIUM"
+    },
+    "attribute": "TESTED"
+  }
+}

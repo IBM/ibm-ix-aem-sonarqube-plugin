@@ -79,52 +79,39 @@
             <version>${sonarjava.version}</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>org.sonarsource.java</groupId>
             <artifactId>java-checks-testkit</artifactId>
             <version>${sonarjava.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.sonarsource.analyzer-commons</groupId>
             <artifactId>sonar-analyzer-commons</artifactId>
             <version>2.7.0.1482</version>
         </dependency>
-
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>31.1-jre</version>
-        </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>2.0.5</version>
         </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
@@ -259,6 +246,46 @@
                                     <groupId>javax</groupId>
                                     <artifactId>javaee-api</artifactId>
                                     <version>6.0</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>io.wcm</groupId>
+                                    <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
+                                    <version>5.3.0</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>io.wcm</groupId>
+                                    <artifactId>io.wcm.testing.aem-mock.core</artifactId>
+                                    <version>5.3.0</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.sling</groupId>
+                                    <artifactId>org.apache.sling.testing.sling-mock.core</artifactId>
+                                    <version>3.4.16</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.sling</groupId>
+                                    <artifactId>org.apache.sling.servlet-helpers</artifactId>
+                                    <version>1.4.6</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.junit.jupiter</groupId>
+                                    <artifactId>junit-jupiter</artifactId>
+                                    <version>5.9.3</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.mockito</groupId>
+                                    <artifactId>mockito-junit-jupiter</artifactId>
+                                    <version>5.3.1</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.junit.jupiter</groupId>
+                                    <artifactId>junit-jupiter-api</artifactId>
+                                    <version>5.9.3</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.mockito</groupId>
+                                    <artifactId>mockito-core</artifactId>
+                                    <version>5.3.1</version>
                                 </artifactItem>
                             </artifactItems>
                             <outputDirectory>${project.build.directory}/test-jars</outputDirectory>
