@@ -2,11 +2,14 @@
 This way you can also properly utilize all the out-of-the-box registered classes in the context (e.g. ResourceResolverFactory, ResourceResolver, Externalizer, XSSApi) 
 </p>
 
-| Additional Information |        |
-|------------------------|--------|
-| Severity               | Major  | 
-| Estimated time to fix  | 15 min |
-
+| Additional Information |                                   |
+|------------------------|-----------------------------------|
+| _Severity - deprecated_| Major                             | 
+| Security impact        | :heavy_minus_sign:                |
+| Reliability impact     | :heavy_minus_sign:                |
+| Maintainability impact | $\color{orange}{\textsf{Medium}}$ |
+| Estimated time to fix  | 15 min                            |
+| Attribute              | Tested                            |
 
 <h2>Noncompliant Code Example</h2>
 

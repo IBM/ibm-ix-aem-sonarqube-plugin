@@ -1,9 +1,13 @@
 <p>Use available AEM or JAVA constants instead of inline literals.
 
-| Additional Information |       |
-|------------------------|-------|
-| Severity               | Minor | 
-| Estimated time to fix  | 5 min |
+| Additional Information |                               |
+|------------------------|-------------------------------|
+| _Severity - deprecated_| Minor                         | 
+| Security impact        | :heavy_minus_sign:            |
+| Reliability impact     | :heavy_minus_sign:            |
+| Maintainability impact | $\color{green}{\textsf{Low}}$ |
+| Estimated time to fix  | 5 min                         |
+| Attribute              | Conventional                  |
 
 </p>
 <h2>Noncompliant Code Example </h2>

@@ -2,10 +2,14 @@
     It is recommended to wrap all the code in the @PostConstruct method inside a try-catch block in order to catch any runtime exceptions that could occur while adapting
     the resource/request. </p>
 
-| Additional Information |        |
-|------------------------|--------|
-| Severity               | Minor  | 
-| Estimated time to fix  | 30 min |
+| Additional Information |                                   |
+|------------------------|-----------------------------------|
+| _Severity - deprecated_| Minor                             | 
+| Security impact        | $\color{green}{\textsf{Low}}$     |
+| Reliability impact     | $\color{orange}{\textsf{Medium}}$ |
+| Maintainability impact | :heavy_minus_sign:                |
+| Estimated time to fix  | 5 min                             |
+| Attribute              | Conventional                      |
 
 <p>We do this to properly log any runtime exception that might occur in a component, for example a null-pointer exception. Also, using this strategy we avoid
     showing unfriendly exceptions and their stacktrace to our end users.

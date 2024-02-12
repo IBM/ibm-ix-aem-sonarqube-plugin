@@ -4,11 +4,14 @@
     <i>getAdministrativeResourceResolver</i> methods. They are deprecated and a security risk.
 </p>
 
-| Additional Information |          |
-|------------------------|----------|
-| Severity               | Critical | 
-| Estimated time to fix  | 15 min   |
-
+| Additional Information |                                   |
+|------------------------|-----------------------------------|
+| _Severity - deprecated_| Critical                          | 
+| Security impact        | $\color{red}{\textsf{High}}$      |
+| Reliability impact     | :heavy_minus_sign:   |
+| Maintainability impact | :heavy_minus_sign:                |
+| Estimated time to fix  | 15 min                            |
+| Attribute              | Trustworthy                       |
 
 <h2>Noncompliant Code Example</h2>
 

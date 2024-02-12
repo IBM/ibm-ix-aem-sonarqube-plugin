@@ -2,10 +2,14 @@
 <p>The <i>adaptTo</i> method is not recommended in this case as it does not throw exceptions, it simply returns <i>null</i> in case of failure.
 </p>
 
-| Additional Information |        |
-|------------------------|--------|
-| Severity               | Info   | 
-| Estimated time to fix  | 20 min |
+| Additional Information |                               |
+|------------------------|-------------------------------|
+| _Severity - deprecated_| Info                          | 
+| Security impact        | :heavy_minus_sign:            |
+| Reliability impact     | :heavy_minus_sign:            |
+| Maintainability impact | $\color{green}{\textsf{Low}}$ |
+| Estimated time to fix  | 20 min                        |
+| Attribute              | Conventional                  |
 
 <h2>Noncompliant Code Example</h2>
 

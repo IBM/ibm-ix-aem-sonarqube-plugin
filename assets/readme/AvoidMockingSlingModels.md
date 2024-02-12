@@ -3,11 +3,14 @@
     way, you will also have the dependency injection automatically handled based on the services and content
     already present in the test context.</p>
 
-| Additional Information |        |
-|------------------------|--------|
-| Severity               | Major  | 
-| Estimated time to fix  | 15 min |
-
+| Additional Information |                                   |
+|------------------------|-----------------------------------|
+| _Severity - deprecated_| Major                             | 
+| Security impact        | :heavy_minus_sign:                |
+| Reliability impact     | :heavy_minus_sign:                |
+| Maintainability impact | $\color{orange}{\textsf{Medium}}$ |
+| Estimated time to fix  | 15 min                            |
+| Attribute              | Tested                            |
 
 <h2>Noncompliant Code Example</h2>
 

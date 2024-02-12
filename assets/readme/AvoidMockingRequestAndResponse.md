@@ -2,11 +2,14 @@
     current resource can be easily changed using the provided method calls. If more complicated behaviour needs to be tested that requires mockito functionality,
     the provided request and response objects can be spied by Mockito instead</p>
 
-| Additional Information |        |
-|------------------------|--------|
-| Severity               | Major  | 
-| Estimated time to fix  | 15 min |
-
+| Additional Information |                                   |
+|------------------------|-----------------------------------|
+| _Severity - deprecated_| Major                             | 
+| Security impact        | :heavy_minus_sign:                |
+| Reliability impact     | :heavy_minus_sign:                |
+| Maintainability impact | $\color{orange}{\textsf{Medium}}$ |
+| Estimated time to fix  | 15 min                            |
+| Attribute              | Tested                            |
 
 <h2>Noncompliant Code Example</h2>
 

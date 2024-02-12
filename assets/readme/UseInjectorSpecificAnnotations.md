@@ -14,10 +14,14 @@
     <li>@ContextAwareConfiguration - Injects the context-aware configuration object populated with data based on the path from which the Sling Model was adapted</li>
 </ul>
 
-| Additional Information |       |
-|------------------------|-------|
-| Severity               | Major | 
-| Estimated time to fix  | 5 min |
+| Additional Information |                                   |
+|------------------------|-----------------------------------|
+| _Severity - deprecated_| Major                             | 
+| Security impact        | :heavy_minus_sign:                |
+| Reliability impact     | $\color{orange}{\textsf{Medium}}$ |
+| Maintainability impact | $\color{green}{\textsf{Low}}$     |
+| Estimated time to fix  | 5 min                             |
+| Attribute              | Efficient                         |
 
 <h2>Noncompliant Code Example</h2>
 

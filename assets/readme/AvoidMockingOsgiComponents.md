@@ -2,11 +2,14 @@
     rather create a stub implementation or mock the interface of the component instead if really needed.
 </p>
 
-| Additional Information |        |
-|------------------------|--------|
-| Severity               | Minor  | 
-| Estimated time to fix  | 15 min |
-
+| Additional Information |                               |
+|------------------------|-------------------------------|
+| _Severity - deprecated_| Minor                         | 
+| Security impact        | :heavy_minus_sign:            |
+| Reliability impact     | :heavy_minus_sign:            |
+| Maintainability impact | $\color{green}{\textsf{Low}}$ |
+| Estimated time to fix  | 15 min                        |
+| Attribute              | Tested                        |
 
 <h2>Noncompliant Code Example</h2>
 
