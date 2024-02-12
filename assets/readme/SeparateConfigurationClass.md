@@ -1,10 +1,14 @@
 <p>Put the OSGi configuration in a separate class and then use <i>@Designate(ocd = CustomServiceConfig.class)</i> to load it into an implementation class.
     One additional benefit is that the configuration can be placed in a separate package and thus easily excluded from Sonar checks.</p>
 
-| Additional Information |        |
-|------------------------|--------|
-| Severity               | Minor  | 
-| Estimated time to fix  | 20 min |
+| Additional Information |                               |
+|------------------------|-------------------------------|
+| _Severity - deprecated_| Minor                         | 
+| Security impact        | :heavy_minus_sign:            |
+| Reliability impact     | :heavy_minus_sign:            |
+| Maintainability impact | $\color{green}{\textsf{Low}}$ |
+| Estimated time to fix  | 20 min                        |
+| Attribute              | Modular                       |
 
 <h2>Noncompliant Code Example</h2>
 

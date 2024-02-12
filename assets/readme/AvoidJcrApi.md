@@ -1,10 +1,14 @@
 <p>Sling APIs have the added benefit of being built for extension, which means it is often easier and safer to augment behaviour of applications built using
     Sling APIs rather than the less extensible JCR APIs.</p>
 
-| Additional Information |        |
-|------------------------|--------|
-| Severity               | Info   | 
-| Estimated time to fix  | 30 min |
+| Additional Information |                               |
+|------------------------|-------------------------------|
+| _Severity - deprecated_| Info                          | 
+| Security impact        | :heavy_minus_sign:            |
+| Reliability impact     | :heavy_minus_sign:            |
+| Maintainability impact | $\color{green}{\textsf{Low}}$ |
+| Estimated time to fix  | 30 min                        |
+| Attribute              | Conventional                  |
 
 <ul>
     <li>Accessing JCR nodes as Sling Resources and accessing their data via <i>ValueMaps</i></li>

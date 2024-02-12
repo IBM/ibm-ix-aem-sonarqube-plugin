@@ -4,10 +4,14 @@
     Also, make sure to keep the throws declaration for <i>IOException</i> and <i>ServletException</i>. Do not try to catch these exceptions, as that might cause unexpected
     behaviour. </p>
 
-| Additional Information |        |
-|------------------------|--------|
-| Severity               | Major  | 
-| Estimated time to fix  | 10 min |
+| Additional Information |                                   |
+|------------------------|-----------------------------------|
+| _Severity - deprecated_| Major                             | 
+| Security impact        | :heavy_minus_sign:                |
+| Reliability impact     | $\color{orange}{\textsf{Medium}}$ |
+| Maintainability impact | :heavy_minus_sign:                |
+| Estimated time to fix  | 10 min                            |
+| Attribute              | Conventional                      |
 
 <h2>Noncompliant Code Example</h2>
 

@@ -1,10 +1,13 @@
 <p>Use <i>HttpServletResponse</i> class constants for Http response codes instead of using hardcoded numbers. 
 
-| Additional Information |       |
-|------------------------|-------|
-| Severity               | Minor | 
-| Estimated time to fix  | 5 min |
-</p>
+| Additional Information |                               |
+|------------------------|-------------------------------|
+| _Severity - deprecated_| Minor                         | 
+| Security impact        | :heavy_minus_sign:            |
+| Reliability impact     | :heavy_minus_sign:            |
+| Maintainability impact | $\color{green}{\textsf{Low}}$ |
+| Estimated time to fix  | 5 min                         |
+| Attribute              | Conventional                  |
 
 <h2>Noncompliant Code Example </h2>
 
