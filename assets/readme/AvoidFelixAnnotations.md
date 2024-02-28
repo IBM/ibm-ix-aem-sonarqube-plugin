@@ -1,9 +1,13 @@
 <p>Felix annotations are deprecated, thus OSGi annotations (<i>org.osgi.service.component.annotations.*<i>) must be used instead.</p>
 
-| Additional Information |          |
-|------------------------|----------|
-| Severity               | Critical | 
-| Estimated time to fix  | 15 min   |
+| Additional Information |                              |
+|------------------------|------------------------------|
+| _Severity - deprecated_| Critical                     | 
+| Security impact        | :heavy_minus_sign:           |
+| Reliability impact     | :heavy_minus_sign:           |
+| Maintainability impact | $\color{red}{\textsf{High}}$ |
+| Estimated time to fix  | 15 min                       |
+| Attribute              | Conventional                 |
 
 <h2>Noncompliant Code Example</h2>
 

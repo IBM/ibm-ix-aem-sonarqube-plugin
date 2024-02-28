@@ -4,10 +4,14 @@
     Sling Servlet would return 500 HTTP code by default anyway, however it would also expose the complete stacktrace and Java/Sling version to the caller. 
     This is sensitive information, which we only want to log internally and maintain maximum security.</p>
 
-| Additional Information |        |
-|------------------------|--------|
-| Severity               | Minor  | 
-| Estimated time to fix  | 15 min |
+| Additional Information |                                   |
+|------------------------|-----------------------------------|
+| _Severity - deprecated_| Minor                             | 
+| Security impact        | $\color{green}{\textsf{Low}}$     |
+| Reliability impact     | $\color{orange}{\textsf{Medium}}$ |
+| Maintainability impact | :heavy_minus_sign:                |
+| Estimated time to fix  | 15 min                            |
+| Attribute              | Conventional                      |
 
 <h2>Noncompliant Code Example</h2>
 

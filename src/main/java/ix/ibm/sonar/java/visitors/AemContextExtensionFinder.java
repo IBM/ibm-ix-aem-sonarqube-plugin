@@ -14,18 +14,24 @@
  *    limitations under the License.
  */
 
-package ix.ibm.sonar.java.checks;
+package ix.ibm.sonar.java.visitors;
 
-public final class TestConstants {
+import ix.ibm.sonar.java.utils.PackageConstants;
+import lombok.Getter;
+import org.sonar.plugins.java.api.tree.BaseTreeVisitor;
+import org.sonar.plugins.java.api.tree.IdentifierTree;
 
-    private static final String TEST_BASE_PATH = "src/test/files/";
+public class AemContextExtensionFinder extends BaseTreeVisitor {
 
-    public static final String SLING_TEST_PATH = TEST_BASE_PATH + "sling/";
-    public static final String OSGI_TEST_PATH = TEST_BASE_PATH + "osgi/";
-    public static final String MOCKS_TEST_PATH = TEST_BASE_PATH + "mocks/";
+    @Getter
+    private boolean foundAnnotation = false;
 
-    public static final String TEST_JARS_PATH = "target/test-jars";
-
-    private TestConstants() {}
+    @Override
+    public void visitIdentifier(final IdentifierTree identifierTree) {
+        if (identifierTree.symbolType().is(PackageConstants.AEM_CONTEXT_EXTENSION)) {
+            this.foundAnnotation = true;
+        }
+        super.visitIdentifier(identifierTree);
+    }
 
 }

@@ -3,10 +3,14 @@
     should always be closed.
 </p>
 
-| Additional Information |          |
-|------------------------|----------|
-| Severity               | Critical | 
-| Estimated time to fix  | 15 min   |
+| Additional Information |                              |
+|------------------------|------------------------------|
+| _Severity - deprecated_| Critical                     | 
+| Security impact        | :heavy_minus_sign:           |
+| Reliability impact     | $\color{red}{\textsf{High}}$ |
+| Maintainability impact | :heavy_minus_sign:           |
+| Estimated time to fix  | 15 min                       |
+| Attribute              | Complete                     |
 
 <h2>Noncompliant Code Example</h2>
 

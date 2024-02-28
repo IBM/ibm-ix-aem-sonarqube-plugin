@@ -1,10 +1,14 @@
 <p>Use the new Sling servlet OSGi DS 1.4 (R7) component property type annotations that come with <i>org.apache.sling.servlets.annotations</i> - <i>@SlingServletResourceTypes</i> and <i>@SlingServletPaths</i>.
 </p>
 
-| Additional Information |        |
-|------------------------|--------|
-| Severity               | Major  | 
-| Estimated time to fix  | 10 min |
+| Additional Information |                                   |
+|------------------------|-----------------------------------|
+| _Severity - deprecated_| Major                             | 
+| Security impact        | :heavy_minus_sign:                |
+| Reliability impact     | :heavy_minus_sign:                |
+| Maintainability impact | $\color{orange}{\textsf{Medium}}$ |
+| Estimated time to fix  | 10 min                            |
+| Attribute              | Conventional                      |
 
 <p>
 Note - make sure you have the

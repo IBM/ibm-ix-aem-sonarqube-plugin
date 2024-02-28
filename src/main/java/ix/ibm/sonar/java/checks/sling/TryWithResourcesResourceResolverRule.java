@@ -25,19 +25,13 @@
  */
 package ix.ibm.sonar.java.checks.sling;
 
+import ix.ibm.sonar.java.utils.PackageConstants;
+import ix.ibm.sonar.java.visitors.ExpandedTreeVisitor;
+import org.sonar.check.Rule;
+import org.sonar.plugins.java.api.tree.*;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.sonar.check.Rule;
-import org.sonar.plugins.java.api.tree.ExpressionTree;
-import org.sonar.plugins.java.api.tree.LambdaExpressionTree;
-import org.sonar.plugins.java.api.tree.MemberSelectExpressionTree;
-import org.sonar.plugins.java.api.tree.MethodInvocationTree;
-import org.sonar.plugins.java.api.tree.Tree;
-import org.sonar.plugins.java.api.tree.TryStatementTree;
-import org.sonar.plugins.java.api.tree.VariableTree;
-
-import ix.ibm.sonar.java.visitors.ExpandedTreeVisitor;
 
 /**
  * Rule to check whether @ResourceResolver has been used within a try with
@@ -45,9 +39,6 @@ import ix.ibm.sonar.java.visitors.ExpandedTreeVisitor;
  */
 @Rule(key = "TryWithResourcesResourceResolver")
 public class TryWithResourcesResourceResolverRule extends ExpandedTreeVisitor {
-
-    private static final String SLING_RESOURCE_RESOLVER = "org.apache.sling.api.resource.ResourceResolver";
-    private static final String SLING_RESOURCE_RESOLVER_FACTORY = "org.apache.sling.api.resource.ResourceResolverFactory";
     private static final String GET_RESOURCE_RESOLVER = "getResourceResolver";
     private static final String GET_SERVICE_RESOURCE_RESOLVER = "getServiceResourceResolver";
     private static final String WARNING_MESSAGE = "ResourceResolver should be closed using try-with-resources Java feature.";
@@ -94,7 +85,7 @@ public class TryWithResourcesResourceResolverRule extends ExpandedTreeVisitor {
     }
 
     private boolean isResourceResolverType(final VariableTree tree) {
-        return SLING_RESOURCE_RESOLVER.equals(tree.type().symbolType().fullyQualifiedName());
+        return PackageConstants.SLING_RESOURCE_RESOLVER.equals(tree.type().symbolType().fullyQualifiedName());
     }
 
     private boolean isAccessViaResourceResolverFactory(final VariableTree tree) {
@@ -115,7 +106,7 @@ public class TryWithResourcesResourceResolverRule extends ExpandedTreeVisitor {
         }
 
         final String methodName = ((MemberSelectExpressionTree) methodSelect).identifier().symbol().name();
-        return SLING_RESOURCE_RESOLVER_FACTORY.equals(((MemberSelectExpressionTree) methodSelect).expression().symbolType().fullyQualifiedName()) &&
+        return PackageConstants.SLING_RESOURCE_RESOLVER_FACTORY.equals(((MemberSelectExpressionTree) methodSelect).expression().symbolType().fullyQualifiedName()) &&
                  (GET_RESOURCE_RESOLVER.equals(methodName) || GET_SERVICE_RESOURCE_RESOLVER.equals(methodName));
     }
 }
