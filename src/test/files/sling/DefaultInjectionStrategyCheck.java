@@ -18,7 +18,7 @@ import org.apache.sling.models.annotations.Model;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 
-@Model(adaptables = Resource.class) // Noncompliant {{Missing defaultInjectionStrategy parameter}}
+@Model(adaptables = Resource.class)
 class SlingModel1 {
 
     public void aMethod() {
@@ -63,7 +63,7 @@ class SlingModel5 {
 
 }
 
-@Model(adaptables = SlingHttpServletRequest.class) // Noncompliant {{Missing defaultInjectionStrategy parameter}}
+@Model(adaptables = SlingHttpServletRequest.class) // Noncompliant {{It is recommended to use OPTIONAL injection strategy when working with or adapting Request objects in a Sling model}}
 class SlingModel6 {
 
     public void aMethod() {
@@ -72,7 +72,8 @@ class SlingModel6 {
 
 }
 
-@Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.REQUIRED) // Noncompliant {{It is recommended to use OPTIONAL injection strategy when working with or adapting Request objects in a Sling model}}
+
+@Model(adaptables = {SlingHttpServletRequest.class, Resource.class}, defaultInjectionStrategy = DefaultInjectionStrategy.REQUIRED) // Noncompliant {{It is recommended to use OPTIONAL injection strategy when working with or adapting Request objects in a Sling model}}
 class SlingModel7 {
 
     @SlingObject

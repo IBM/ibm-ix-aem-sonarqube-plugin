@@ -33,7 +33,6 @@ import ix.ibm.sonar.java.visitors.ExpandedTreeVisitor;
 @Rule(key = "DefaultInjectionStrategy")
 public class DefaultInjectionStrategyRule extends ExpandedTreeVisitor {
 
-    private static final String WARNING_MISSING_DEFAULT_STRATEGY = "Missing defaultInjectionStrategy parameter";
     private static final String WARNING_USE_OPTIONAL_STRATEGY = "It is recommended to use OPTIONAL injection strategy when working with or adapting Request objects in a Sling model";
 
     private static final String IDENTIFIER_OPTIONAL = "OPTIONAL";
@@ -52,8 +51,7 @@ public class DefaultInjectionStrategyRule extends ExpandedTreeVisitor {
     }
 
     private void verifySlingModelAnnotation(final ClassTree classTree, final AnnotationTree annotationTree) {
-        AssignmentExpressionTree defaultInjectionStrategyTree = null;
-        boolean hasDefaultInjectionArgument = false;
+        Tree defaultInjectionStrategyTree = null;
         boolean hasOptionalDefaultInjection = false;
         boolean usesRequestObject = false;
 
@@ -63,7 +61,6 @@ public class DefaultInjectionStrategyRule extends ExpandedTreeVisitor {
                 final IdentifierTree nameTree = (IdentifierTree) assignmentTree.variable();
 
                 if (StringUtils.equals(nameTree.name(), ANNOTATION_KEY_INJECTION_STRATEGY)) {
-                    hasDefaultInjectionArgument = true;
                     hasOptionalDefaultInjection = this.checkIfInjectionStrategyIsOptional(assignmentTree);
                     defaultInjectionStrategyTree = assignmentTree;
                 } else if (StringUtils.equals(nameTree.name(), ANNOTATION_KEY_ADAPTABLES)) {
@@ -73,9 +70,8 @@ public class DefaultInjectionStrategyRule extends ExpandedTreeVisitor {
         }
 
         usesRequestObject |= ClassUsageFinder.isClassUsed(PackageConstants.SLING_HTTP_SERVLET_REQUEST, classTree);
-        if (!hasDefaultInjectionArgument) {
-            this.context.reportIssue(this, annotationTree, WARNING_MISSING_DEFAULT_STRATEGY);
-        } else if (usesRequestObject && !hasOptionalDefaultInjection) {
+        if (usesRequestObject && !hasOptionalDefaultInjection) {
+            defaultInjectionStrategyTree = defaultInjectionStrategyTree == null ? annotationTree : defaultInjectionStrategyTree;
             this.context.reportIssue(this, defaultInjectionStrategyTree, WARNING_USE_OPTIONAL_STRATEGY);
         }
 
