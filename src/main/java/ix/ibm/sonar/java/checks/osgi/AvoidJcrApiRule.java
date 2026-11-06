@@ -19,7 +19,7 @@ package ix.ibm.sonar.java.checks.osgi;
 import ix.ibm.sonar.java.utils.JavaFinder;
 import ix.ibm.sonar.java.utils.PackageConstants;
 import ix.ibm.sonar.java.visitors.ExpandedTreeVisitor;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.sonar.check.Rule;
 import org.sonar.plugins.java.api.semantic.Type;
 import org.sonar.plugins.java.api.tree.IdentifierTree;

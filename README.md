@@ -22,8 +22,8 @@ The rules can be easily added to [SonarQube](https://www.sonarqube.org/) and use
 2. Under the plugins subsection, search for `IBM iX AEM Sonar rules` and press install
 3. Restart the SonarQube instance
 
-## Compatiblity
-The newest version of this plugin (v1.4.x) only supports SonarQube versions starting from v9.9. If you are using older versions of SonarQube, v1.2 of this plugin can be used for SonarQube v8.9 or newer, although with some known issues that were fixed in the latest version.
+## Compatibility
+The newest version of this plugin (v1.4.x) only supports SonarQube versions starting from v9.9 and is compatible with the latest SonarQube versions). The plugin is also compatible with the new Community versions of SonarQube which use a different version naming scheme than the paid versions. If you are using older versions of SonarQube which don't support the latest plugin version, you can use v1.2 of this plugin starting with SonarQube v8.9, although with some known issues that were fixed in the latest version.
 
 Note: since this plugin is written in Java 11, you must make sure not to run the Sonar scanner using an older Java version (usually inside the CI/CD pipeline). This does not impact the code itself that is being analysed (which can use any Java version). This is only relevant if you are using SonarQube v8.9 as all newer versions no longer support running scanner with Java 8. 
 

@@ -26,7 +26,7 @@ package ix.ibm.sonar.java.utils;
 import java.util.Map;
 import java.util.Optional;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public final class LiteralConstants {
 

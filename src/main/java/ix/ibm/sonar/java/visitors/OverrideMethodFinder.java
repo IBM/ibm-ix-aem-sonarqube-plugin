@@ -19,7 +19,7 @@ package ix.ibm.sonar.java.visitors;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.BooleanUtils;
+import org.apache.commons.lang3.BooleanUtils;
 import org.sonar.plugins.java.api.tree.BaseTreeVisitor;
 import org.sonar.plugins.java.api.tree.MethodTree;
 import org.sonar.plugins.java.api.tree.Tree;

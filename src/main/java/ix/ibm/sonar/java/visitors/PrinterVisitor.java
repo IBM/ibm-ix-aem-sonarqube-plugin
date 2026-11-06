@@ -16,7 +16,7 @@
 
 package ix.ibm.sonar.java.visitors;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.sonar.plugins.java.api.tree.BaseTreeVisitor;
 import org.sonar.plugins.java.api.tree.Tree;
 
