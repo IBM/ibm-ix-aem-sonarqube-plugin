@@ -17,7 +17,7 @@
 package ix.ibm.sonar.java.visitors;
 
 import lombok.Getter;
-import org.apache.commons.lang.math.NumberUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.sonar.plugins.java.api.tree.*;
 
